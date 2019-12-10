@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+}
+
+.filters {
+  background-color: #777;
+  height: 250px;
+  padding: 2%;
+  margin: 0;
+}
+
+select {
+  display: block;
+  margin: 1%;
+  padding: 1%;
+  width: 200px;
+}
+
+.beer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.beer-tile {
+  border: 1px solid black;
+  height: 250px;
+  width: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 3%;
+  padding: 1.5%;
+}
+
+.beer-name {
+  position: relative;
+  top: 15%;
+  text-align: center;
+  font-size: 18px;
+  height: 40px;
+}
+
+.brewery-name {
+  position: relative;
+  top: 35%;
+  text-align: center;
+  font-size: 14px
+}

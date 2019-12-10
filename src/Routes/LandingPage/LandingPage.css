@@ -1,0 +1,19 @@
+.landing-container {
+  text-align: center;
+}
+
+h1 {
+  height: 150px;
+  padding-top: 5%;
+  background-color: #777;
+  margin: 0;
+}
+
+.app-desc {
+  padding: 2% 20%;
+}
+
+.disclaimer {
+  margin-top: 6%;
+  font-style: italic;
+}

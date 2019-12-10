@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block;
+  height: 50px;
+  margin-bottom: 0;
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 0 26px;
+  font-size: 14px;
+  line-height: 33px;
+  border-radius: 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: black;
+  color: ghostwhite;
+  margin: 10px;
+  transition: all .2s ease-in-out;
+}
+
+button:focus,
+button:hover {
+  background: rgb(139, 139, 139);
+  outline: none;
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
+  color: ghostwhite;
+}

@@ -1,0 +1,38 @@
+h1 {
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 1%;
+}
+
+label {
+  display: block;
+  margin: 1%
+}
+
+select {
+  margin: 1%;
+}
+
+textarea {
+  display: block;
+  margin: 1%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 2%
+}
+
+.column {
+  min-width: 300px;
+}
+
+.right {
+  order: 2;
+  text-align: center;
+}

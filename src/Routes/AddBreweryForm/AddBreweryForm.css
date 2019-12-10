@@ -1,0 +1,14 @@
+label {
+  display: block;
+}
+
+input {
+  margin: 1%;
+  display: block;
+}
+
+
+button {
+  display: inline-block;
+  margin: 1%;
+}

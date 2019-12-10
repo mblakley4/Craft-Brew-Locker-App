@@ -1,0 +1,13 @@
+form {
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+}
+
+button {
+  display: inline- block;
+}
