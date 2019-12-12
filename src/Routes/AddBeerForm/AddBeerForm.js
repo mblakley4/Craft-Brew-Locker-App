@@ -40,6 +40,9 @@ export default class AddBeerForm extends Component {
               <option value="stout-2">stout-2</option>
             </select>
 
+            <label htmlFor='color'>Try this Color</label>
+            <input type='color' id='color' name='color'/>
+
             <label htmlFor="description">Description</label>
             <textarea name="description" id="description" cols="45" rows="10"></textarea>
 

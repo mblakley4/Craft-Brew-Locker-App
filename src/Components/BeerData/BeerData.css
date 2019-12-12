@@ -1,0 +1,80 @@
+.beer-data {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 2%
+}
+
+.column {
+  flex-basis: 33%;
+  text-align: center;
+  min-width: 300px;
+  padding: 2%;
+}
+
+.brewery-img {
+  height: 150px;
+  width: auto;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.glass {
+  padding: 10px;
+}
+
+.oval {
+  height: 45px;
+  width: 155px;
+  background-color: #999;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+  top: 25px;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.trapezoid {
+	border-top: 200px solid #999;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	height: 0;
+	width: 155px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.oval-bottom {
+  height: 45px;
+  width: 125px;
+  background-color: #999;
+  border-radius: 50%;
+  position: relative;
+  bottom: 25px;
+  margin: 0 auto;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-column {
+  margin: 3%;
+}
+
+.circle {
+  height: 5em;
+  width: 5em;
+  background-color: #999;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle-text {
+  position: relative;
+  font-size: 1.5em;
+  text-align: center;
+  top: 1.1em
+}
