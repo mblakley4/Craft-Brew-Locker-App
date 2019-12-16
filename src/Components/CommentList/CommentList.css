@@ -1,0 +1,12 @@
+.comment-container {
+  background-color: #999;
+  padding: 2%;
+}
+
+.comment {
+  margin: 2% 0;
+}
+
+.user-name {
+  font-style: italic;
+}

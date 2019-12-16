@@ -1,20 +1,8 @@
+.home_button {
+  float: right;
+}
+
 .hero-img {
   height: 150px;
   background-color: #777
-}
-
-h1 {
-  text-align: center;
-}
-.comment-container {
-  background-color: #999;
-  padding: 2%;
-}
-
-.comment {
-  margin: 2% 0;
-}
-
-.user-name {
-  font-style: italic;
 }
