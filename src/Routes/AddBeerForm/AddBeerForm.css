@@ -28,9 +28,12 @@ textarea {
   margin: 0 2%
 }
 
-.column {
+.columns {
   min-width: 300px;
+  flex-basis: 33%;
+  padding: 2%;
 }
+
 
 .right {
   order: 2;

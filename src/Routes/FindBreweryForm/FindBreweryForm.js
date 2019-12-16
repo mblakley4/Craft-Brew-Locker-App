@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import './FindBreweryForm.css'
+
+function getBrewery(Breweries, id) {
+  return Breweries.filter(brewery => brewery.id === id)[0]
+}
 
 export default class FindBreweryForm extends Component {
   static contextType = LockerContext;
@@ -9,35 +13,63 @@ export default class FindBreweryForm extends Component {
     Locker: []
   }
 
-  render() {
-    const { Locker } = this.context
-    //fix:  remove duplicates; need to create breweries before advancing
-    const duplicates = Locker.map(b => b.brewery.name)
-    const breweries = [...new Set(duplicates)]
-    console.log(breweries);
+  state = {
+    brewery: {},
+    touched: false,
+    redirect: false
+  }
 
-    const options =
-      Locker.map((b, i) =>
-        <option
-          value={b.brewery.name}
-          key={i}>{b.brewery.name}
-        </option>
-      )
+  handleSubmit = e => {
+    e.preventDefault()
+    const brewery = this.state.brewery
+    this.setState({
+      redirect: true
+    })
+  }
+
+  updateBrewery(id) {
+    const selectedBrewery = getBrewery(this.context.Breweries, id)
+    this.setState({brewery: selectedBrewery, touched: true})
+  }
+
+  render() {
+    if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: '/AddBeerForm',
+        state: { brewery: this.state.brewery }
+      }} />
+    }
+    const breweries  = this.context.Breweries
+    // const breweryList = breweries.map((b, i) => b.name).sort()
+    const options = breweries.map((b, i) =>
+      <option
+        key={i}
+        value={b.id}
+        id={b.id}
+      >
+      {b.name}
+      </option>
+    )
+
     return (
       <div>
       <h2>Find a Brewery</h2>
 
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className='form-section'>
-          <select name="brewery-select" id="brewery-select">
+          <select
+            name="brewery-select"
+            onChange={e => this.updateBrewery(e.target.value)}
+          >
             <option value="default">Select one...</option>
             {options}
           </select>
-          <Link to={'/AddBeerForm'}>
-            <button type="submit">
+            <button
+              type="submit"
+              disabled={!this.state.touched}
+            >
               Go!
             </button>
-          </Link>
         </div>
       </form>
 

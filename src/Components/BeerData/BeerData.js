@@ -8,20 +8,14 @@ export default class BeerData extends Component {
 
   render() {
     const { beer } = this.props
-    if (!beer.name) {
-      return (
-        <div />
-      )
-    }
-    else {
       return (
         <>
         <h1>{beer.name}</h1>
         <section className='beer-data'>
           <div className='left column'>
             <h2>{beer.brewery.name}</h2>
-            <h4>{beer.brewery.city}, {beer.brewery.state}</h4>
-              <img className='brewery-img' src={beer.brewery.image} />
+            <h4>{beer.brewery.city}, {beer.brewery.us_state}</h4>
+              <img className='brewery-img' src={beer.brewery.image} alt='brewery logo' />
           </div>
 
           <div className='center column'>
@@ -54,6 +48,5 @@ export default class BeerData extends Component {
         </section>
         </>
       );
-    }
   }
 }

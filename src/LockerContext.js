@@ -1,7 +1,8 @@
 import React from 'react'
 
 const LockerContext = React.createContext({
-  Locker: [],
+  Beers: [],
+  Breweries: [],
   addBeer: () => {},
   addBrewery: () => {},
   updateBeer: () => {},

@@ -6,15 +6,14 @@ import './BeerList.css'
 export default class BeerList extends Component {
   static contextType = LockerContext;
   static defaultProps = {
-    Locker: []
+    Beers: []
   }
 
   render() {
-    const { Locker } = this.context
-    console.log(Locker);
+    const { Beers } = this.context
     return (
       <>
-        {Locker.map(beer =>
+        {Beers.map(beer =>
           <BeerItem
             key={beer.id}
             {...beer}

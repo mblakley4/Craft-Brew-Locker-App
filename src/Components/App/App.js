@@ -8,23 +8,41 @@ import AddBreweryForm from '../../Routes/AddBreweryForm/AddBreweryForm';
 import AddBeerForm from '../../Routes/AddBeerForm/AddBeerForm';
 import BeerPage from '../../Routes/BeerPage/BeerPage';
 import LockerContext from '../../LockerContext';
-import Locker from '../../Locker';
+import Beers from '../../Beers';
+import Breweries from '../../Breweries';
 import './App.css';
 
 class App extends React.Component {
   state = {
-    Locker: []
+    Beers: [],
+    Breweries: [],
+  }
+
+  handleAddBrewery = brewery => {
+    this.setState({
+      Breweries: [...this.state.Breweries, brewery]
+    })
+  }
+
+  handleAddBeer = beer => {
+    this.setState({
+      Beers: [...this.state.Beers, beer]
+    })
   }
 
   componentDidMount() {
     this.setState({
-      Locker
+      Beers: Beers,
+      Breweries: Breweries
     })
   }
 
   render() {
     const contextValue = {
-      Locker: this.state.Locker
+      Beers: this.state.Beers,
+      Breweries: this.state.Breweries,
+      addBrewery: this.handleAddBrewery,
+      addBeer: this.handleAddBeer,
     }
   	return (
   		<main className='App'>

@@ -9,7 +9,6 @@ export default class CommentList extends Component {
 
   render() {
     const { comments } = this.props
-    console.log(comments);
     if (!comments) {
       return (
         <div />
