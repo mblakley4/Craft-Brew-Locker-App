@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
 import BeerData from '../../Components/BeerData/BeerData'
 import CommentList from '../../Components/CommentList/CommentList'
+import serviceFunctions from '../../serviceFunctions'
 import LockerContext from '../../LockerContext'
 import Footer from '../../Components/Footer/Footer'
 import './BeerPage.css'
 
-function getCurrentBeer(Beers, beerId) {
-  return Beers.filter(beer => beer.id == beerId)[0]
-}
-
 export default class BeerPage extends Component {
   static contextType = LockerContext;
 
-
-
   render() {
     const Beers = this.context.Beers
-    console.log(Beers);
     const beerId = this.props.match.params.beer_id
-    console.log(beerId);
-    const beer = getCurrentBeer(Beers, beerId)
-    console.log(beer);
+    const beer =
+      serviceFunctions.getCurrentBeer(Beers, beerId)
     return (
       <div>
         <button
@@ -35,7 +28,7 @@ export default class BeerPage extends Component {
 
         <BeerData beer={beer}/>
 
-        <CommentList comments={beer.comments} beerId={beer.id}/>
+        <CommentList beerId={beerId}/>
 
         <Footer />
       </div>

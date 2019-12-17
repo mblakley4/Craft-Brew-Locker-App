@@ -1,35 +1,38 @@
 import React, { Component } from 'react'
+import LockerContext from '../../LockerContext'
+import serviceFunctions from '../../serviceFunctions'
 import './BeerData.css'
 
 export default class BeerData extends Component {
-  static defaultProps = {
-    beer: {}
-  }
+  static contextType = LockerContext
 
   render() {
     const { beer } = this.props
+    const breweryId = beer.breweryId
+    const brewery =
+      serviceFunctions.findBrewery(this.context.Breweries, breweryId)
       return (
         <>
         <h1>{beer.name}</h1>
         <section className='beer-data'>
           <div className='left column'>
-            <h2>{beer.brewery.name}</h2>
-            <h4>{beer.brewery.city}, {beer.brewery.us_state}</h4>
-              <img className='brewery-img' src={beer.brewery.image} alt='brewery logo' />
+            <h2>{brewery.name}</h2>
+            <h4>{brewery.city}, {brewery.us_state}</h4>
+              <img className='brewery-img' src={brewery.image} alt='brewery logo' />
           </div>
 
           <div className='center column'>
             <div className='glass'>
               <div
                 className="oval"
-                style={{'background-color': beer.beerColor}}>
+                style={{'backgroundColor': beer.beerColor}}>
               </div>
               <div
               className="trapezoid "
-              style={{'border-top': `200px solid ${beer.beerColor}`}}></div>
+              style={{'borderTop': `200px solid ${beer.beerColor}`}}></div>
               <div
               className="oval-bottom"
-              style={{'background-color': beer.beerColor}}>
+              style={{'backgroundColor': beer.beerColor}}>
               </div>
             </div>
             <h3>{beer.style}</h3>

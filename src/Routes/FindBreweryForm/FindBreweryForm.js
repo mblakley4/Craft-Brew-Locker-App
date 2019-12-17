@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
+import  serviceFunctions from '../../serviceFunctions'
 import './FindBreweryForm.css'
-
-function getBrewery(Breweries, id) {
-  return Breweries.filter(brewery => brewery.id == id)[0]
-}
 
 export default class FindBreweryForm extends Component {
   static contextType = LockerContext;
@@ -16,26 +13,32 @@ export default class FindBreweryForm extends Component {
   state = {
     brewery: {},
     touched: false,
-    redirect: false
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-    const brewery = this.state.brewery
-    this.setState({
-      redirect: true
-    })
+    redirect: 0
   }
 
   updateBrewery(id) {
-    const selectedBrewery = getBrewery(this.context.Breweries, id)
+    const selectedBrewery = serviceFunctions.findBrewery(this.context.Breweries, id)
     this.setState({brewery: selectedBrewery, touched: true})
   }
 
+  updateRedirctAdd() {
+    this.setState({redirect: 1})
+  }
+
+  updateRedirctUpdate() {
+    this.setState({redirect: 2})
+  }
+
   render() {
-    if (this.state.redirect) {
+    if (this.state.redirect === 1) {
       return <Redirect to={{
         pathname: '/AddBeerForm',
+        state: { brewery: this.state.brewery }
+      }} />
+    }
+    if (this.state.redirect === 2) {
+      return <Redirect to={{
+        pathname: `/UpdateBrewery/${this.state.brewery.id}`,
         state: { brewery: this.state.brewery }
       }} />
     }
@@ -55,7 +58,7 @@ export default class FindBreweryForm extends Component {
       <div>
       <h2>Find a Brewery</h2>
 
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <div className='form-section'>
           <select
             name="brewery-select"
@@ -67,8 +70,16 @@ export default class FindBreweryForm extends Component {
             <button
               type="submit"
               disabled={!this.state.touched}
+              onClick={e => this.updateRedirctAdd()}
             >
-              Go!
+              Add Beer
+            </button>
+            <button
+              type="submit"
+              disabled={!this.state.touched}
+              onClick={e => this.updateRedirctUpdate()}
+            >
+              Update
             </button>
         </div>
       </form>
@@ -76,9 +87,10 @@ export default class FindBreweryForm extends Component {
       <h2>Can't find the Brewery?</h2>
       <Link to={'/AddBreweryForm'}>
         <button type="button">
-          Add a Brewery
+          Add Brewery
         </button>
       </Link>
+
       <Link to={'/BeerListPage'}>
         <button type="button">
           Cancel

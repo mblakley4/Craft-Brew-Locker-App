@@ -18,11 +18,11 @@ export default class CommentForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const comment = {
+      beerId: this.props.beerId,
       text: this.state.text.value,
-      userName: this.state.userName.value
+      userName: this.state.userName.value,
     }
-    console.log(comment);
-    this.context.postComment(comment, this.props.beerId)
+    this.context.postComment(comment)
     document.forms['comment_form'].reset();
   }
 

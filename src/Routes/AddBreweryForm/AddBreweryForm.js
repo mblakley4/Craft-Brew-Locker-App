@@ -80,7 +80,6 @@ export default class AddBreweryForm extends Component {
     if (this.state.redirect) {
       return <Redirect to={'/FindBreweryForm'} />
     }
-    const { error } = this.state
     const options = STATES
       .map(
         (state, i) => <option value={state.abbr} key={i}>{state.abbr}</option>

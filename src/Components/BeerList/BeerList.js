@@ -6,8 +6,11 @@ import './BeerList.css'
 export default class BeerList extends Component {
   static contextType = LockerContext;
   static defaultProps = {
-    Beers: []
+    Beers: [],
   }
+
+  //find breweryId in the beer
+  //iterate through breweries to find matching id and return the brewery
 
   render() {
     const { Beers } = this.context
