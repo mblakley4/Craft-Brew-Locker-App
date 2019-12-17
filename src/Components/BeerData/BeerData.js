@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LockerContext from '../../LockerContext'
 import serviceFunctions from '../../serviceFunctions'
+import Rating from '../Rating/Rating'
 import './BeerData.css'
 
 export default class BeerData extends Component {
@@ -55,6 +56,7 @@ export default class BeerData extends Component {
                 <h4>IBU</h4>
               </div>
             </div>
+            <Rating className='rating-data' value={beer.rating} />
           </div>
         </section>
         </>

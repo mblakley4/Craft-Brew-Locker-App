@@ -46,3 +46,9 @@ select {
   text-align: center;
   font-size: 14px
 }
+
+.rating-container {
+  position: relative;
+  top: 35%;
+  text-align: center;
+}

@@ -33,6 +33,10 @@ export default class AddBeerForm extends Component {
       value: '',
       touched: false
     },
+    rating: {
+      value: '',
+      touched: false
+    },
     redirect: false
   }
 
@@ -46,6 +50,7 @@ export default class AddBeerForm extends Component {
       IBU: this.state.IBU.value,
       beerColor: this.state.beerColor.value,
       description: this.state.description.value,
+      rating: this.state.rating.value,
       brewery: {
         id: this.props.location.state.brewery.id,
         name: this.props.location.state.brewery.name,
@@ -97,6 +102,10 @@ export default class AddBeerForm extends Component {
 
   updateBeerDescription(description) {
     this.setState({description: {value: description, touched: true}})
+  }
+
+  updateBeerRating(rating) {
+    this.setState({rating: {value: rating, touched: true}})
   }
 
   render() {
@@ -167,6 +176,19 @@ export default class AddBeerForm extends Component {
                 onChange={e => this.updateBeerColor(e.target.value)}>
                 {radioInputs}
               </select>
+
+              <label htmlFor='rating'>Rating
+                {' '}
+              </label>
+              <input
+                type='number'
+                name='rating'
+                id='rating'
+                defaultValue='1'
+                min='1'
+                max='5'
+                required
+              />
 
               <label htmlFor="description">Description</label>
               <textarea

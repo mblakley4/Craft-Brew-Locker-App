@@ -10,6 +10,7 @@ const Beers = [
     'breweryId': '1',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '5'
   },
   {
     'id': '2b',
@@ -22,6 +23,7 @@ const Beers = [
     'breweryId': '1',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '4'
   },
   {
     'id': '3c',
@@ -34,6 +36,7 @@ const Beers = [
     'breweryId': '2',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '4'
   },
   {
     'id': '4d',
@@ -46,6 +49,7 @@ const Beers = [
     'breweryId': '2',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '2'
   },
   {
     'id': '5e',
@@ -58,6 +62,7 @@ const Beers = [
     'breweryId': '3',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '1'
   },
   {
     'id': '6f',
@@ -70,6 +75,7 @@ const Beers = [
     'breweryId': '3',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
+    'rating': '2'
   }
 ]
 

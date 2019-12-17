@@ -17,6 +17,7 @@ export default class UpdateBeer extends Component {
     beerColor: '',
     breweryId: '',
     description: '',
+    rating: ''
   }
 
   componentDidMount() {
@@ -33,6 +34,7 @@ export default class UpdateBeer extends Component {
       beerColor: beer.beerColor,
       breweryId: beer.breweryId,
       description: beer.description,
+      rating: beer.rating
     })
   }
 
@@ -60,10 +62,14 @@ export default class UpdateBeer extends Component {
     this.setState({ description: e.target.value })
   }
 
+  handleChangeRating = e => {
+    this.setState({ rating: e.target.value })
+  }
+
   handleSubmit = e => {
     e.preventDefault()
-    const { id, name, style, ABV, IBU, beerColor, breweryId, description } = this.state
-    const updatedBeer = { id, name, style, ABV, IBU, beerColor, breweryId, description }
+    const { id, name, style, ABV, IBU, beerColor, breweryId, description, rating } = this.state
+    const updatedBeer = { id, name, style, ABV, IBU, beerColor, breweryId, description, rating }
     this.context.updateBeer(updatedBeer)
     this.props.history.push(`/BeerPage/${id}`)
   }
@@ -77,7 +83,7 @@ export default class UpdateBeer extends Component {
     const breweryId = beer.breweryId
     const brewery = serviceFunctions.findBrewery(breweries, breweryId)
 
-    const { name, style, ABV, IBU, beerColor, description } = this.state
+    const { name, style, ABV, IBU, beerColor, description, rating } = this.state
     const radioInputs = beer_colors.map(
       (c, i) =>
         <option
@@ -143,6 +149,21 @@ export default class UpdateBeer extends Component {
                 onChange={this.handleChangeBeerColor}>
                 {radioInputs}
               </select>
+
+              <label htmlFor='rating'>Rating
+                {' '}
+              </label>
+              <input
+                type='number'
+                name='rating'
+                id='rating'
+                defaultValue='1'
+                min='1'
+                max='5'
+                value={rating}
+                onChange={this.handleChangeRating}
+                required
+              />
 
               <label htmlFor="description">Description</label>
               <textarea
