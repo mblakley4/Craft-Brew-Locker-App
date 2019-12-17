@@ -22,7 +22,7 @@ export default class AddBreweryForm extends Component {
       value: '',
       touched: false
     },
-    url: {
+    image: {
       value: '',
       touched: false
     },
@@ -37,7 +37,7 @@ export default class AddBreweryForm extends Component {
       name: this.state.name.value,
       city: this.state.city.value,
       us_state: this.state.us_state.value,
-      url: this.state.url.value
+      image: this.state.image.value
     }
     this.context.addBrewery(brewery)
     this.setState({
@@ -71,8 +71,8 @@ export default class AddBreweryForm extends Component {
     this.setState({us_state: {value: us_state, touched: true}})
   }
 
-  updateBreweryURL(url) {
-    this.setState({url: {value: url, touched: true}})
+  updateBreweryImage(image) {
+    this.setState({image: {value: image, touched: true}})
   }
 
 
@@ -121,7 +121,7 @@ export default class AddBreweryForm extends Component {
           <input
             type='url'
             id='breweryImage'
-            onChange={e => this.updateBreweryURL(e.target.value)}
+            onChange={e => this.updateBreweryImage(e.target.value)}
             name='breweryImage' />
 
           <button

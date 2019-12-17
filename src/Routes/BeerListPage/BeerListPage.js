@@ -9,9 +9,6 @@ export default class BeerListPage extends Component {
     return (
       <div>
       <h1>Beer List</h1>
-      <section className='filters'>
-
-      </section>
 
       <Link to={'/FindBreweryForm'}>
         <button>

@@ -49,7 +49,11 @@ class App extends React.Component {
   }
 
   handleUpdateBeer = updatedBeer => {
-    console.log('beer update func');
+    this.setState({
+      Beers: this.state.Beers.map(beer =>
+        (beer.id !== updatedBeer.id) ? beer : updatedBeer
+      )
+    })
   }
 
   componentDidMount() {
@@ -69,7 +73,7 @@ class App extends React.Component {
       addBeer: this.handleAddBeer,
       postComment: this.handlePostComment,
       updateBrewery: this.handleUpdateBrewery,
-      updateBeer: this.handdleUpdateBeer,
+      updateBeer: this.handleUpdateBeer,
     }
   	return (
   		<main className='App'>
