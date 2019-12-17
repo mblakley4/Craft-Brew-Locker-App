@@ -20,9 +20,17 @@ export default class BeerData extends Component {
 
           <div className='center column'>
             <div className='glass'>
-              <div className="oval"></div>
-              <div className="trapezoid "></div>
-              <div className="oval-bottom"></div>
+              <div
+                className="oval"
+                style={{'background-color': beer.beerColor}}>
+              </div>
+              <div
+              className="trapezoid "
+              style={{'border-top': `200px solid ${beer.beerColor}`}}></div>
+              <div
+              className="oval-bottom"
+              style={{'background-color': beer.beerColor}}>
+              </div>
             </div>
             <h3>{beer.style}</h3>
           </div>

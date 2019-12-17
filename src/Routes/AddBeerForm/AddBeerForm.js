@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import ValidationError from '../../Components/ValidationError'
+import beer_colors from '../../beer_colors'
 import './AddBeerForm.css'
 
 export default class AddBeerForm extends Component {
@@ -103,6 +104,14 @@ export default class AddBeerForm extends Component {
       return <Redirect to={'/BeerListPage'} />
     }
     const beerBrewery = this.props.location.state.brewery
+    const radioInputs = beer_colors.map(
+      (c, i) =>
+        <option
+          value={c.color}
+          key={i} >
+          {c.srm}
+        </option>
+    )
 
     return (
       <div>
@@ -150,22 +159,14 @@ export default class AddBeerForm extends Component {
                   name='IBU'
                   onChange={e => this.updateBeerIBU(e.target.value)} />
 
-              <label htmlFor='beer-color'>Beer Color</label>
+              <label htmlFor='beer_colors'>Beer Colors from the SRM List</label>
               <select
                 name="beer-color"
                 id="beer-color"
+                style={{'background-color': this.state.beerColor.value}}
                 onChange={e => this.updateBeerColor(e.target.value)}>
-                <option value="yellow-1">yellow-1</option>
-                <option value="yellow-2">yellow-2</option>
-                <option value="yellow-3">yellow-3</option>
-                <option value="amber-1">amber-1</option>
-                <option value="amber-2">amber-2</option>
-                <option value="amber-3">amber-3</option>
-                <option value="stout-1">stout-1</option>
-                <option value="stout-2">stout-2</option>
+                {radioInputs}
               </select>
-
-              <div>Sample Color here</div>
 
               <label htmlFor="description">Description</label>
               <textarea

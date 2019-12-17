@@ -6,7 +6,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#C1963C',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
     'brewery': {
@@ -27,7 +27,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#E0D01B',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
     'brewery': {
@@ -56,7 +56,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#361F1B',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
     'brewery': {
@@ -77,7 +77,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#19100F',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
     'brewery': {
@@ -98,7 +98,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#100B0A',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
     'brewery': {
@@ -119,7 +119,7 @@ const Beers = [
     'ABV': '4.4',
     'IBU': '32',
     'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    'beerColor': 'amber2',
+    'beerColor': '#6B3A1E',
     'breweryId': '3',
     'dateAdded': '2019-10-21T22:04:28.505Z',
     'dateModified': '2019-10-21T22:04:28.505Z',
