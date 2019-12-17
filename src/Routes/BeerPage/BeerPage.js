@@ -6,7 +6,7 @@ import Footer from '../../Components/Footer/Footer'
 import './BeerPage.css'
 
 function getCurrentBeer(Beers, beerId) {
-  return Beers.filter(beer => beer.id === beerId)[0]
+  return Beers.filter(beer => beer.id == beerId)[0]
 }
 
 export default class BeerPage extends Component {
@@ -18,6 +18,7 @@ export default class BeerPage extends Component {
     const Beers = this.context.Beers
     console.log(Beers);
     const beerId = this.props.match.params.beer_id
+    console.log(beerId);
     const beer = getCurrentBeer(Beers, beerId)
     console.log(beer);
     return (
@@ -34,7 +35,7 @@ export default class BeerPage extends Component {
 
         <BeerData beer={beer}/>
 
-        <CommentList comments={beer.comments}/>
+        <CommentList comments={beer.comments} beerId={beer.id}/>
 
         <Footer />
       </div>

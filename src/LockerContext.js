@@ -7,6 +7,7 @@ const LockerContext = React.createContext({
   addBrewery: () => {},
   updateBeer: () => {},
   updateBrewery: () => {},
+  postComment: () => {},
 })
 
 export default LockerContext

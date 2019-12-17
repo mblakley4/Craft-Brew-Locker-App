@@ -45,6 +45,7 @@ const Beers = [
         'text': 'Now that\'s a beer',
         'dateAdded': '',
         'userName': 'Mark',
+        'numOrder': '1'
       },
     ]
   },
@@ -138,6 +139,7 @@ const Beers = [
         'dateAdded': '',
         'userName': 'Mike',
         'beerId': '6f',
+        'numOrder': '1'
       },
       {
         'id': '2',
@@ -145,6 +147,7 @@ const Beers = [
         'dateAdded': '',
         'userName': 'Marie',
         'beerId': '6f',
+        'numOrder': '2'
       },
     ]
   }

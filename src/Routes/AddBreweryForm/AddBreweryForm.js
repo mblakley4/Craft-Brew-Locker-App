@@ -33,6 +33,7 @@ export default class AddBreweryForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const brewery = {
+      id: Math.floor(Math.random()*1000),
       name: this.state.name.value,
       city: this.state.city.value,
       us_state: this.state.us_state.value,

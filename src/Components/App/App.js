@@ -30,6 +30,20 @@ class App extends React.Component {
     })
   }
 
+  handlePostComment = (comment, id) => {
+    const beer = this.state.Beers.filter(beer => beer.id == id)[0]
+    beer.comments.push(comment)
+    const updatedBeer = beer
+    console.log(updatedBeer);
+
+    this.setState({
+      Beers: this.state.Beers.map(beer =>
+        (beer.id !== id) ? beer : updatedBeer
+      )
+    })
+    console.log(this.state.Beers);
+  }
+
   componentDidMount() {
     this.setState({
       Beers: Beers,
@@ -43,6 +57,7 @@ class App extends React.Component {
       Breweries: this.state.Breweries,
       addBrewery: this.handleAddBrewery,
       addBeer: this.handleAddBeer,
+      postComment: this.handlePostComment,
     }
   	return (
   		<main className='App'>

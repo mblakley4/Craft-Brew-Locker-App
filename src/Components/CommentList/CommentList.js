@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Comments from '../Comments/Comments'
+import CommentForm from '../CommentForm/CommentForm'
 import './CommentList.css'
 
 export default class CommentList extends Component {
@@ -9,12 +10,7 @@ export default class CommentList extends Component {
 
   render() {
     const { comments } = this.props
-    if (!comments) {
-      return (
-        <div />
-      )
-    }
-    else {
+    console.log(comments);
       return (
         <section className='comment-container'>
           <h3>Comments</h3>
@@ -26,16 +22,9 @@ export default class CommentList extends Component {
               />)}
           </ul>
 
-          <textarea
-            name="comment-post"
-            id="comment-post"
-            cols="65"
-            rows="10"
-          >
-          </textarea>
-          <button>Post Comment</button>
+          <CommentForm beerId={this.props.beerId} />
+
         </section>
       );
-    }
   }
 }

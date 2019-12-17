@@ -4,7 +4,7 @@ import LockerContext from '../../LockerContext'
 import './FindBreweryForm.css'
 
 function getBrewery(Breweries, id) {
-  return Breweries.filter(brewery => brewery.id === id)[0]
+  return Breweries.filter(brewery => brewery.id == id)[0]
 }
 
 export default class FindBreweryForm extends Component {
