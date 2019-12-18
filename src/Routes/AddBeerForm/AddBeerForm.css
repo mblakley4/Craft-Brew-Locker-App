@@ -1,10 +1,30 @@
+.add-update-Beer-container {
+  background: url(../../Images/wheat_brown.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vmax;
+  padding-top: 15%;
+}
+
+.back-container {
+  background-color: rgb(255, 255, 255, .75);
+  border-radius: 10px;
+  padding: 2%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 h1 {
   text-align: center;
 }
 
 input {
   display: block;
-  margin: 1%;
+  margin: 2%;
+  height: 30px;
+  width: 200px;
 }
 
 label {
@@ -12,13 +32,14 @@ label {
   margin: 1%
 }
 
-select {
-  
+#beer-color {
+  height: 30px;
 }
 
 textarea {
   display: block;
   margin: 1%;
+  font-size: 14px;
 }
 
 .container {

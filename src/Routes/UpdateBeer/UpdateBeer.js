@@ -94,6 +94,8 @@ export default class UpdateBeer extends Component {
     )
     return (
       <div>
+        <div className='add-update-Beer-container'>
+        <div className='back-container'>
         <h1>Update Beer</h1>
         <div className='container'>
           <div className='columns right'>
@@ -185,6 +187,8 @@ export default class UpdateBeer extends Component {
           </form>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     );
   }

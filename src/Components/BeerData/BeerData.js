@@ -7,6 +7,10 @@ import './BeerData.css'
 export default class BeerData extends Component {
   static contextType = LockerContext
 
+  static defaultProps = {
+    beer: []
+  }
+
   render() {
     const { beer } = this.props
     const breweryId = beer.breweryId

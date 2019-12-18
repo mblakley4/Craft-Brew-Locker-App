@@ -124,6 +124,8 @@ export default class AddBeerForm extends Component {
 
     return (
       <div>
+      <div className='add-update-Beer-container'>
+      <div className='back-container'>
         <h1>Add a Beer</h1>
         <div className='container'>
           <div className='columns right'>
@@ -194,8 +196,8 @@ export default class AddBeerForm extends Component {
               <textarea
                 name="description"
                 id="description"
-                cols="45"
-                rows="10"
+                cols="26"
+                rows="6"
                 onChange={e => this.updateBeerDescription(e.target.value)}>
               </textarea>
               <button type='submit'>
@@ -208,6 +210,8 @@ export default class AddBeerForm extends Component {
             </Link>
           </form>
           </div>
+        </div>
+        </div>
         </div>
       </div>
     );
