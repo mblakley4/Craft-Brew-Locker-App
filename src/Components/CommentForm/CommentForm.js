@@ -48,7 +48,7 @@ export default class CommentForm extends Component {
           required
         >
         </textarea>
-        <label htmlFor="userName">UserName</label>
+        <label htmlFor="userName" className='userName'>User Name</label>
           <input
             type='text'
             id='userName'

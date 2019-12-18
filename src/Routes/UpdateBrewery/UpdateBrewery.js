@@ -59,6 +59,8 @@ export default class UpdateBrewery extends Component {
       )
     return (
       <div>
+      <div className='add-update-Brewery-container'>
+      <div className='background-container'>
       <h1>Update Brewery</h1>
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name</label>
@@ -112,6 +114,8 @@ export default class UpdateBrewery extends Component {
           </button>
         </Link>
       </form>
+      </div>
+      </div>
       </div>
     );
   }

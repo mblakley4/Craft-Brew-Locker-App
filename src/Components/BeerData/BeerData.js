@@ -12,12 +12,13 @@ export default class BeerData extends Component {
   }
 
   render() {
-    const { beer } = this.props
+    const { beer } = this.props || {}
+    console.log(beer);
     const breweryId = beer.breweryId
     const brewery =
-      serviceFunctions.findBrewery(this.context.Breweries, breweryId)
+      serviceFunctions.findBrewery(this.context.Breweries, breweryId) || {}
       return (
-        <>
+        <div className='beer-data-container'>
         <h1>{beer.name}</h1>
         <section className='beer-data'>
           <div className='left column'>
@@ -63,7 +64,7 @@ export default class BeerData extends Component {
             <Rating className='rating-data' value={beer.rating} />
           </div>
         </section>
-        </>
+        </div>
       );
   }
 }

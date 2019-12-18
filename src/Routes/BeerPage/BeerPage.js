@@ -4,6 +4,7 @@ import BeerData from '../../Components/BeerData/BeerData'
 import CommentList from '../../Components/CommentList/CommentList'
 import serviceFunctions from '../../serviceFunctions'
 import LockerContext from '../../LockerContext'
+import beerHops from '../../Images/hops_beer.jpg'
 import Footer from '../../Components/Footer/Footer'
 import './BeerPage.css'
 
@@ -17,21 +18,21 @@ export default class BeerPage extends Component {
       serviceFunctions.getCurrentBeer(Beers, beerId)
     return (
       <div>
-        <Link to={`/UpdateBeer/${this.props.match.params.beer_id}`} >
-          <button className='top_button'>
-            Update Beer
-          </button>
-        </Link>
+        <section className='img-container'>
+          <img src={beerHops} className='hero-img' alt='beer and hops on wood plank' />
+          <div className='top_button'>
+            <Link to={`/UpdateBeer/${this.props.match.params.beer_id}`} >
+              <button>
+                Update Beer
+              </button>
+            </Link>
 
-        <button
-          onClick={ () => this.props.history.push(`/BeerListPage`)}
-          className='top_button'
-        >
-          Home
-        </button>
-
-        <section className='hero-img'>
-          Image
+            <button
+              onClick={ () => this.props.history.push(`/BeerListPage`)}
+            >
+              Home
+            </button>
+          </div>
         </section>
 
         <BeerData beer={beer}/>

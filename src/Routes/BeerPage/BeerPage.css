@@ -1,8 +1,16 @@
 .top_button {
-  float: right;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 .hero-img {
-  height: 150px;
-  background-color: #777
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+}
+
+.img-container {
+  position: relative;
+  background-color: #b6a27a;
 }

@@ -21,10 +21,23 @@ export default class UpdateBeer extends Component {
   }
 
   componentDidMount() {
-    console.log('mount');
     const beerId = this.props.match.params.beerId
     const beers = this.context.Beers
     const beer = serviceFunctions.getCurrentBeer(beers, beerId)
+      || JSON.parse(localStorage.getItem('formValues'))
+    localStorage.setItem('formValues', JSON.stringify(
+      {
+        id: beer.id,
+        name: beer.name,
+        style: beer.style,
+        ABV: beer.ABV,
+        IBU: beer.IBU,
+        beerColor: beer.beerColor,
+        breweryId: beer.breweryId,
+        description: beer.description,
+        rating: beer.rating
+      }
+    ))
     this.setState({
       id: beer.id,
       name: beer.name,
@@ -75,14 +88,12 @@ export default class UpdateBeer extends Component {
   }
 
   render() {
-    console.log('render');
     const beerId = this.props.match.params.beerId
     const beers = this.context.Beers
-    const beer = serviceFunctions.getCurrentBeer(beers, beerId)
+    const beer = serviceFunctions.getCurrentBeer(beers, beerId) || {}
     const breweries = this.context.Breweries
     const breweryId = beer.breweryId
-    const brewery = serviceFunctions.findBrewery(breweries, breweryId)
-
+    const brewery = serviceFunctions.findBrewery(breweries, breweryId) || {}
     const { name, style, ABV, IBU, beerColor, description, rating } = this.state
     const radioInputs = beer_colors.map(
       (c, i) =>
@@ -159,7 +170,6 @@ export default class UpdateBeer extends Component {
                 type='number'
                 name='rating'
                 id='rating'
-                defaultValue='1'
                 min='1'
                 max='5'
                 value={rating}
@@ -171,8 +181,8 @@ export default class UpdateBeer extends Component {
               <textarea
                 name="description"
                 id="description"
-                cols="45"
-                rows="10"
+                cols="26"
+                rows="6"
                 value={description}
                 onChange={this.handleChangeDescription}>
               </textarea>

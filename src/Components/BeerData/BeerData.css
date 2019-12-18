@@ -1,8 +1,12 @@
+.beer-data-container {
+  background: #b6a27a;
+}
+
 .beer-data {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 2%
+  margin: 0 2%;
 }
 
 .column {
@@ -26,7 +30,6 @@
 .oval {
   height: 45px;
   width: 155px;
-  background-color: #999;
   border: 1.5px solid black;
   border-radius: 50%;
   position: relative;
@@ -36,7 +39,6 @@
 }
 
 .trapezoid {
-	border-top: 200px solid #999;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
 	height: 0;
@@ -48,7 +50,6 @@
 .oval-bottom {
   height: 45px;
   width: 125px;
-  background-color: #999;
   border-radius: 50%;
   position: relative;
   bottom: 25px;
@@ -67,7 +68,7 @@
 .circle {
   height: 5em;
   width: 5em;
-  background-color: #999;
+  background-color: #527b23;
   border-radius: 50%;
   display: inline-block;
 }
@@ -75,6 +76,7 @@
 .circle-text {
   position: relative;
   font-size: 1.5em;
+  font-weight: 800;
   text-align: center;
   top: 1.1em
 }

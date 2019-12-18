@@ -18,7 +18,7 @@ export default class CommentList extends Component {
     const comments = serviceFunctions.findComments(allComments, beerId)
       return (
         <section className='comment-container'>
-          <h3>Comments</h3>
+          <h3 className='comment-title'>Comments</h3>
           <ul className='comment_list'>
             {comments.map(comment =>
               <Comments
