@@ -19,7 +19,7 @@ const Breweries = [
   },
   {
     'id': '3',
-    'name': 'Southern Swells',
+    'name': 'Southern Swells Extended Name',
     'city': 'Jacksonville',
     'us_state': 'FL',
     'image': 'https://static1.squarespace.com/static/5bbd5969348cd96fd293f13f/t/5be3172f4ae2375f274be673/1575644508652/?format=1500w',

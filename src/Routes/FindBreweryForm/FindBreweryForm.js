@@ -55,18 +55,19 @@ export default class FindBreweryForm extends Component {
     )
 
     return (
-      <div>
-      <h2>Find a Brewery</h2>
-
-      <form>
-        <div className='form-section'>
-          <select
-            name="brewery-select"
-            onChange={e => this.updateBrewery(e.target.value)}
-          >
-            <option value="default">Select one...</option>
-            {options}
-          </select>
+      <div className='findBrewery-container'>
+      <div className='white-container'>
+        <h2 className='findBrewery-title'>Find a Brewery</h2>
+        <form>
+          <div className='select-container'>
+            <select
+              name="brewery-select"
+              onChange={e => this.updateBrewery(e.target.value)}
+            >
+              <option value="default">Select one...</option>
+              {options}
+            </select>
+          </div>
             <button
               type="submit"
               disabled={!this.state.touched}
@@ -81,21 +82,21 @@ export default class FindBreweryForm extends Component {
             >
               Update
             </button>
-        </div>
-      </form>
+        </form>
 
-      <h2>Can't find the Brewery?</h2>
-      <Link to={'/AddBreweryForm'}>
-        <button type="button">
-          Add Brewery
-        </button>
-      </Link>
+        <h2>Can't find the Brewery?</h2>
+        <Link to={'/AddBreweryForm'}>
+          <button type="button">
+            Add Brewery
+          </button>
+        </Link>
 
-      <Link to={'/BeerListPage'}>
-        <button type="button">
-          Cancel
-        </button>
-      </Link>
+        <Link to={'/BeerListPage'}>
+          <button type="button">
+            Cancel
+          </button>
+        </Link>
+      </div>
       </div>
     );
   }

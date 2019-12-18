@@ -53,7 +53,7 @@ const Beers = [
   },
   {
     'id': '5e',
-    'name': 'beer5',
+    'name': 'Super Long Beer Name Stout',
     'style': 'Stout',
     'ABV': '4.4',
     'IBU': '32',

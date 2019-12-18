@@ -8,23 +8,27 @@ export default class BeerListPage extends Component {
   render() {
     return (
       <div>
-      <h1>Beer List</h1>
+      <div className='beer-list-container'>
+        <h1>Craft Beer List</h1>
 
-      <Link to={'/FindBreweryForm'}>
-        <button>
-          Add a Beer
-        </button>
-      </Link>
+        <div className='list-links'>
+          <Link to={'/FindBreweryForm'}>
+            <button>
+              Add a Beer
+            </button>
+          </Link>
 
-      <Link to={'/FindBreweryForm'}>
-        <button type="button">
-          Update a Brewery
-        </button>
-      </Link>
+          <Link to={'/FindBreweryForm'}>
+            <button type="button">
+              Update a Brewery
+            </button>
+          </Link>
+        </div>
 
-      <section className='beer-list'>
-        <BeerList />
-      </section>
+        <section className='beer-list'>
+          <BeerList />
+        </section>
+      </div>
       <Footer />
       </div>
     );

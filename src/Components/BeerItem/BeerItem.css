@@ -1,5 +1,5 @@
 .BeerPage_Link {
-  color: black;
+  color: #F2CB05;
 }
 .beer-tile {
   border: 1px solid black;
@@ -10,31 +10,38 @@
   margin: 3%;
   padding: 1.5%;
   text-align: center;
+  background: url(../../Images/barrel_face.png);
+  background-position: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .beer-name {
   position: relative;
-  top: 15%;
+  top: 10%;
+  padding: 0 8%;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   height: 40px;
 }
 
 .brewery-name {
   position: relative;
-  bottom: 1%;
+  bottom: 6%;
   text-align: center;
-  font-size: 14px
+  font-size: 18px;
 }
 
 .rating-container {
   position: relative;
-  bottom: 2%;
+  bottom: 10%;
   text-align: center;
 }
 
 .brewery-img-item {
-  height: 50px;
+  height: 60px;
   width: auto;
-  margin-top: 15%;
+  margin-top: 8%;
 }
