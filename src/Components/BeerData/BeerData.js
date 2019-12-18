@@ -19,7 +19,7 @@ export default class BeerData extends Component {
           <div className='left column'>
             <h2>{brewery.name}</h2>
             <h4>{brewery.city}, {brewery.us_state}</h4>
-              <img className='brewery-img' src={brewery.image} alt='brewery logo' />
+            <img className='brewery-img' src={brewery.image} alt='brewery logo' />
           </div>
 
           <div className='center column'>

@@ -1,3 +1,40 @@
 .BeerPage_Link {
   color: black;
 }
+.beer-tile {
+  border: 1px solid black;
+  height: 250px;
+  width: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 3%;
+  padding: 1.5%;
+  text-align: center;
+}
+
+.beer-name {
+  position: relative;
+  top: 15%;
+  text-align: center;
+  font-size: 18px;
+  height: 40px;
+}
+
+.brewery-name {
+  position: relative;
+  bottom: 1%;
+  text-align: center;
+  font-size: 14px
+}
+
+.rating-container {
+  position: relative;
+  bottom: 2%;
+  text-align: center;
+}
+
+.brewery-img-item {
+  height: 50px;
+  width: auto;
+  margin-top: 15%;
+}

@@ -20,6 +20,7 @@ export default class BeerItem extends Component {
       >
         <div className='beer-tile' key={this.props.id}>
           <h2 className='beer-name'>{this.props.name}</h2>
+          <img className='brewery-img-item' src={brewery.image} alt='brewery logo' />
           <h3 className='brewery-name'>{brewery.name}</h3>
           <div className='rating-container'>
             <Rating value={this.props.rating} />
