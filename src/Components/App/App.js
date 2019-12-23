@@ -11,9 +11,6 @@ import UpdateBeer from '../../Routes/UpdateBeer/UpdateBeer'
 import BeerPage from '../../Routes/BeerPage/BeerPage'
 import LockerContext from '../../LockerContext'
 import apiServices from '../../Services/apiServices'
-import Beers from '../../Beers'
-import Breweries from '../../Breweries'
-import Comments from '../../Comments'
 import './App.css'
 
 class App extends React.Component {

@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import ValidationError from '../../Components/ValidationError'
 import beer_colors from '../../Services/beer_colors'
+import apiServices from '../../Services/apiServices'
 import './AddBeerForm.css'
 
 export default class AddBeerForm extends Component {
@@ -37,13 +38,13 @@ export default class AddBeerForm extends Component {
       value: '',
       touched: false
     },
-    redirect: false
+    redirect: false,
+    error: null,
   }
 
   handleSubmit = e => {
     e.preventDefault()
     const beer = {
-      id: Math.floor(Math.random()*1000),
       name: this.state.name.value,
       style: this.state.style.value,
       abv: this.state.abv.value,
@@ -53,9 +54,15 @@ export default class AddBeerForm extends Component {
       rating: this.state.rating.value,
       brewery_id: this.props.location.state.brewery.id,
     }
-    this.context.addBeer(beer)
-    this.setState({
-      redirect: true
+    apiServices.postBeer(beer)
+    .then (beer => {
+      this.context.addBeer(beer)
+      this.setState({
+        redirect: true
+      })
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
 
@@ -163,10 +170,10 @@ export default class AddBeerForm extends Component {
                   name='ibu'
                   onChange={e => this.updateBeerIBU(e.target.value)} />
 
-              <label htmlFor='beer_colors'>Beer Colors from the SRM List</label>
+              <label htmlFor='beer_color'>Beer Colors from the SRM List</label>
               <select
-                name="beer-color"
-                id="beer-color"
+                name="beer_color"
+                id="beer_color"
                 style={{'background-color': this.state.beer_color.value}}
                 onChange={e => this.updateBeerColor(e.target.value)}>
                 {radioInputs}

@@ -27,7 +27,7 @@ export default class CommentList extends Component {
               />)}
           </ul>
 
-          <CommentForm beerId={beer_id} />
+          <CommentForm beer_id={beer_id} />
 
         </section>
       );

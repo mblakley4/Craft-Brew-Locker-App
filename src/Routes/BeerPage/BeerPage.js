@@ -37,7 +37,7 @@ export default class BeerPage extends Component {
 
         <BeerData beer={beer}/>
 
-        <CommentList beerId={beer_id}/>
+        <CommentList beer_id={beer_id}/>
 
         <Footer />
       </div>

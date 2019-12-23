@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LockerContext from '../../LockerContext'
+import apiServices from '../../Services/apiServices'
 
 export default class CommentForm extends Component {
   static contextType = LockerContext
@@ -22,8 +23,17 @@ export default class CommentForm extends Component {
       text: this.state.text.value,
       user_name: this.state.user_name.value,
     }
-    this.context.postComment(comment)
-    document.forms['comment_form'].reset();
+    apiServices.postComment(comment)
+    .then (comment => {
+      this.context.postComment(comment)
+      document.forms['comment_form'].reset();
+      this.setState({
+        redirect: true
+      })
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
   updateText(text) {

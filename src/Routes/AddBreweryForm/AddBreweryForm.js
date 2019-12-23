@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import STATES from '../../Services/states_US';
 import ValidationError from '../../Components/ValidationError'
 import LockerContext from '../../LockerContext'
+import apiServices from '../../Services/apiServices'
 import './AddBreweryForm.css';
 
 export default class AddBreweryForm extends Component {
@@ -33,15 +34,20 @@ export default class AddBreweryForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const brewery = {
-      id: Math.floor(Math.random()*1000),
       name: this.state.name.value,
       city: this.state.city.value,
       us_state: this.state.us_state.value,
       image: this.state.image.value
     }
-    this.context.addBrewery(brewery)
-    this.setState({
-      redirect: true
+    apiServices.postBrewery(brewery)
+    .then (brewery => {
+      this.context.addBrewery(brewery)
+      this.setState({
+        redirect: true
+      })
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
 
