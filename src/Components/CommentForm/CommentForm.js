@@ -9,7 +9,7 @@ export default class CommentForm extends Component {
       value: '',
       touched: false
     },
-      userName: {
+      user_name: {
         value: '',
         touched: false
       },
@@ -18,9 +18,9 @@ export default class CommentForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const comment = {
-      beerId: this.props.beerId,
+      beer_id: this.props.beer_id,
       text: this.state.text.value,
-      userName: this.state.userName.value,
+      user_name: this.state.user_name.value,
     }
     this.context.postComment(comment)
     document.forms['comment_form'].reset();
@@ -30,8 +30,8 @@ export default class CommentForm extends Component {
     this.setState({text: {value: text, touched: true}})
   }
 
-  updateUserName(userName) {
-    this.setState({userName: {value: userName, touched: true}})
+  updateUserName(user_name) {
+    this.setState({user_name: {value: user_name, touched: true}})
   }
 
   render() {
@@ -48,11 +48,11 @@ export default class CommentForm extends Component {
           required
         >
         </textarea>
-        <label htmlFor="userName" className='userName'>User Name</label>
+        <label htmlFor="user_name" className='user_name'>User Name</label>
           <input
             type='text'
-            id='userName'
-            name='userName'
+            id='use_name'
+            name='user_name'
             onChange={e => this.updateUserName(e.target.value)}
             required />
         <button type='submit'>Post Comment</button>

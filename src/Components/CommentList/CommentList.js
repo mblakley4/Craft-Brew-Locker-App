@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Comments from '../Comments/Comments'
 import CommentForm from '../CommentForm/CommentForm'
-import serviceFunctions from '../../serviceFunctions'
+import serviceFunctions from '../../Services/serviceFunctions'
 import LockerContext from '../../LockerContext'
 import './CommentList.css'
 
@@ -14,8 +14,8 @@ export default class CommentList extends Component {
 
   render() {
     const allComments = this.context.Comments
-    const beerId = this.props.beerId
-    const comments = serviceFunctions.findComments(allComments, beerId)
+    const beer_id = this.props.beer_id
+    const comments = serviceFunctions.findComments(allComments, beer_id) || {}
       return (
         <section className='comment-container'>
           <h3 className='comment-title'>Comments</h3>
@@ -27,7 +27,7 @@ export default class CommentList extends Component {
               />)}
           </ul>
 
-          <CommentForm beerId={beerId} />
+          <CommentForm beerId={beer_id} />
 
         </section>
       );

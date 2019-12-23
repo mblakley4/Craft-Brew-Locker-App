@@ -10,6 +10,7 @@ import UpdateBrewery from '../../Routes/UpdateBrewery/UpdateBrewery'
 import UpdateBeer from '../../Routes/UpdateBeer/UpdateBeer'
 import BeerPage from '../../Routes/BeerPage/BeerPage'
 import LockerContext from '../../LockerContext'
+import apiServices from '../../Services/apiServices'
 import Beers from '../../Beers'
 import Breweries from '../../Breweries'
 import Comments from '../../Comments'
@@ -19,7 +20,8 @@ class App extends React.Component {
   state = {
     Beers: [],
     Breweries: [],
-    Comments: []
+    Comments: [],
+    error: null,
   }
 
   handleAddBrewery = brewery => {
@@ -57,11 +59,29 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      Beers: Beers,
-      Breweries: Breweries,
-      Comments: Comments
+    apiServices.getBreweries()
+    .then(breweries => {
+      this.setState({ Breweries: breweries })
     })
+    .catch(error => this.setState({ error }))
+
+    apiServices.getBeers()
+    .then(beers => {
+      this.setState({ Beers: beers })
+    })
+    .catch(error => this.setState({ error }))
+
+    apiServices.getComments()
+    .then(comments => {
+      this.setState({ Comments: comments })
+    })
+    .catch(error => this.setState({ error }))
+
+    // this.setState({
+    //   Beers: Beers,
+    //   Breweries: Breweries,
+    //   Comments: Comments
+    // })
   }
 
   render() {
@@ -85,8 +105,8 @@ class App extends React.Component {
             <Route path={'/BeerPage/:beer_id'} component={BeerPage} />
             <Route path={'/AddBreweryForm'} component={AddBreweryForm} />
             <Route path={'/AddBeerForm'} component={AddBeerForm} />
-            <Route path={'/UpdateBrewery/:breweryId'} component={UpdateBrewery} />
-            <Route path={'/UpdateBeer/:beerId'} component={UpdateBeer} />
+            <Route path={'/UpdateBrewery/:brewery_id'} component={UpdateBrewery} />
+            <Route path={'/UpdateBeer/:beer_id'} component={UpdateBeer} />
             <Route component={NotFoundPage} />
           </Switch>
         </LockerContext.Provider>

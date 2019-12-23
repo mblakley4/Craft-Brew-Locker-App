@@ -7,7 +7,7 @@ export default class Comments extends Component {
     return (
       <li className='comment'>
           <p>{comment.text}</p>
-            <span className='user-name'>- {comment.userName}</span>
+            <span className='user_name_display'>- {comment.user_name}</span>
       </li>
     );
   }

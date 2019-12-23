@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BeerData from '../../Components/BeerData/BeerData'
 import CommentList from '../../Components/CommentList/CommentList'
-import serviceFunctions from '../../serviceFunctions'
+import serviceFunctions from '../../Services/serviceFunctions'
 import LockerContext from '../../LockerContext'
 import beerHops from '../../Images/hops_beer.jpg'
 import Footer from '../../Components/Footer/Footer'
@@ -13,9 +13,9 @@ export default class BeerPage extends Component {
 
   render() {
     const Beers = this.context.Beers
-    const beerId = this.props.match.params.beer_id
+    const beer_id = this.props.match.params.beer_id
     const beer =
-      serviceFunctions.getCurrentBeer(Beers, beerId)
+      serviceFunctions.getCurrentBeer(Beers, beer_id) || {}
     return (
       <div>
         <section className='img-container'>
@@ -37,7 +37,7 @@ export default class BeerPage extends Component {
 
         <BeerData beer={beer}/>
 
-        <CommentList beerId={beerId}/>
+        <CommentList beerId={beer_id}/>
 
         <Footer />
       </div>

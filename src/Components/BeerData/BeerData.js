@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LockerContext from '../../LockerContext'
-import serviceFunctions from '../../serviceFunctions'
+import serviceFunctions from '../../Services/serviceFunctions'
 import Rating from '../Rating/Rating'
 import './BeerData.css'
 
@@ -13,10 +13,9 @@ export default class BeerData extends Component {
 
   render() {
     const { beer } = this.props || {}
-    console.log(beer);
-    const breweryId = beer.breweryId
+    const brewery_id = beer.brewery_id
     const brewery =
-      serviceFunctions.findBrewery(this.context.Breweries, breweryId) || {}
+      serviceFunctions.findBrewery(this.context.Breweries, brewery_id) || {}
       return (
         <div className='beer-data-container'>
         <h1>{beer.name}</h1>
@@ -31,14 +30,14 @@ export default class BeerData extends Component {
             <div className='glass'>
               <div
                 className="oval"
-                style={{'backgroundColor': beer.beerColor}}>
+                style={{'backgroundColor': beer.beer_color}}>
               </div>
               <div
               className="trapezoid "
-              style={{'borderTop': `200px solid ${beer.beerColor}`}}></div>
+              style={{'borderTop': `200px solid ${beer.beer_color}`}}></div>
               <div
               className="oval-bottom"
-              style={{'backgroundColor': beer.beerColor}}>
+              style={{'backgroundColor': beer.beer_color}}>
               </div>
             </div>
             <h3>{beer.style}</h3>
@@ -50,13 +49,13 @@ export default class BeerData extends Component {
             <div className='circle-container'>
               <div className='circle-column'>
                 <div className='circle'>
-                  <span className='circle-text'>{beer.ABV}%</span>
+                  <span className='circle-text'>{beer.abv}%</span>
                 </div>
                 <h4>ABV</h4>
               </div>
               <div className='circle-column'>
                 <div className='circle'>
-                  <span className='circle-text'>{beer.IBU}</span>
+                  <span className='circle-text'>{beer.ibu}</span>
                 </div>
                 <h4>IBU</h4>
               </div>

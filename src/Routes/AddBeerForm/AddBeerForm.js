@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import ValidationError from '../../Components/ValidationError'
-import beer_colors from '../../beer_colors'
+import beer_colors from '../../Services/beer_colors'
 import './AddBeerForm.css'
 
 export default class AddBeerForm extends Component {
@@ -17,15 +17,15 @@ export default class AddBeerForm extends Component {
       value: '',
       touched: false
     },
-    ABV: {
+    abv: {
       value: '',
       touched: false
     },
-    IBU: {
+    ibu: {
       value: '',
       touched: false
     },
-    beerColor: {
+    beer_color: {
       value: '',
       touched: false
     },
@@ -46,19 +46,12 @@ export default class AddBeerForm extends Component {
       id: Math.floor(Math.random()*1000),
       name: this.state.name.value,
       style: this.state.style.value,
-      ABV: this.state.ABV.value,
-      IBU: this.state.IBU.value,
-      beerColor: this.state.beerColor.value,
+      abv: this.state.abv.value,
+      ibu: this.state.ibu.value,
+      beer_color: this.state.beer_color.value,
       description: this.state.description.value,
       rating: this.state.rating.value,
-      brewery: {
-        id: this.props.location.state.brewery.id,
-        name: this.props.location.state.brewery.name,
-        city: this.props.location.state.brewery.city,
-        us_state: this.props.location.state.brewery.us_state,
-        image: this.props.location.state.brewery.image,
-      },
-      comments: []
+      brewery_id: this.props.location.state.brewery.id,
     }
     this.context.addBeer(beer)
     this.setState({
@@ -88,16 +81,16 @@ export default class AddBeerForm extends Component {
     this.setState({style: {value: style, touched: true}})
   }
 
-  updateBeerABV(ABV) {
-    this.setState({ABV: {value: ABV, touched: true}})
+  updateBeerABV(abv) {
+    this.setState({abv: {value: abv, touched: true}})
   }
 
-  updateBeerIBU(IBU) {
-    this.setState({IBU: {value: IBU, touched: true}})
+  updateBeerIBU(ibu) {
+    this.setState({ibu: {value: ibu, touched: true}})
   }
 
   updateBeerColor(color) {
-    this.setState({beerColor: {value: color, touched: true}})
+    this.setState({beer_color: {value: color, touched: true}})
   }
 
   updateBeerDescription(description) {
@@ -155,26 +148,26 @@ export default class AddBeerForm extends Component {
                   required />
                   {this.state.style.touched && (<ValidationError message={this.validateStyle()}/> )}
 
-              <label htmlFor="ABV">ABV</label>
+              <label htmlFor="abv">ABV</label>
                 <input
                   type="number"
                   step='.01'
-                  id='ABV'
-                  name='ABV'
+                  id='abv'
+                  name='abv'
                   onChange={e => this.updateBeerABV(e.target.value)} />
 
-               <label htmlFor="IBU">IBU</label>
+               <label htmlFor="ibu">IBU</label>
                 <input
                   type="number"
-                  id='IBU'
-                  name='IBU'
+                  id='ibu'
+                  name='ibu'
                   onChange={e => this.updateBeerIBU(e.target.value)} />
 
               <label htmlFor='beer_colors'>Beer Colors from the SRM List</label>
               <select
                 name="beer-color"
                 id="beer-color"
-                style={{'background-color': this.state.beerColor.value}}
+                style={{'background-color': this.state.beer_color.value}}
                 onChange={e => this.updateBeerColor(e.target.value)}>
                 {radioInputs}
               </select>
@@ -189,6 +182,7 @@ export default class AddBeerForm extends Component {
                 defaultValue='1'
                 min='1'
                 max='5'
+                onChange={e => this.updateBeerRating(e.target.value)}
                 required
               />
 

@@ -3,22 +3,22 @@ const Comments = [
     'id': '1',
     'text': 'This beer rocks!',
     'dateAdded': '',
-    'userName': 'Mike',
-    'beerId': '6f',
+    'user_name': 'Mike',
+    'beer_id': '6f',
   },
   {
     'id': '2',
     'text': 'Yea it does.',
     'dateAdded': '',
-    'userName': 'Marie',
-    'beerId': '6f',
+    'user_name': 'Marie',
+    'beer_id': '6f',
   },
   {
     'id': '3',
     'text': 'Now that\'s a beer',
     'dateAdded': '',
-    'userName': 'Mark',
-    'beerId': '2b',
+    'user_name': 'Mark',
+    'beer_id': '2b',
   }
 ]
 

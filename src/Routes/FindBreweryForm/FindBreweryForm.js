@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
-import  serviceFunctions from '../../serviceFunctions'
+import  serviceFunctions from '../../Services/serviceFunctions'
 import './FindBreweryForm.css'
 
 export default class FindBreweryForm extends Component {

@@ -15,10 +15,10 @@
   margin: 2% 0;
 }
 
-.user-name {
+.user_name_display {
   font-style: italic;
 }
 
-.userName {
+.user_name {
   color: ghostwhite;
 }

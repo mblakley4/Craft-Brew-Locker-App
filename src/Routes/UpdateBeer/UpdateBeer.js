@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
-import serviceFunctions from '../../serviceFunctions'
-import beer_colors from '../../beer_colors'
+import serviceFunctions from '../../Services/serviceFunctions'
+import beer_colors from '../../Services/beer_colors'
 
 export default class UpdateBeer extends Component {
 
@@ -12,28 +12,28 @@ export default class UpdateBeer extends Component {
     id: '',
     name: '',
     style: '',
-    ABV: '',
-    IBU: '',
-    beerColor: '',
-    breweryId: '',
+    abv: '',
+    ibu: '',
+    beer_color: '',
+    brewery_id: '',
     description: '',
     rating: ''
   }
 
   componentDidMount() {
-    const beerId = this.props.match.params.beerId
+    const beer_id = this.props.match.params.beer_id
     const beers = this.context.Beers
-    const beer = serviceFunctions.getCurrentBeer(beers, beerId)
+    const beer = serviceFunctions.getCurrentBeer(beers, beer_id)
       || JSON.parse(localStorage.getItem('formValues'))
     localStorage.setItem('formValues', JSON.stringify(
       {
         id: beer.id,
         name: beer.name,
         style: beer.style,
-        ABV: beer.ABV,
-        IBU: beer.IBU,
-        beerColor: beer.beerColor,
-        breweryId: beer.breweryId,
+        abv: beer.abv,
+        ibu: beer.ibu,
+        beer_color: beer.beer_color,
+        brewery_id: beer.brewery_id,
         description: beer.description,
         rating: beer.rating
       }
@@ -42,10 +42,10 @@ export default class UpdateBeer extends Component {
       id: beer.id,
       name: beer.name,
       style: beer.style,
-      ABV: beer.ABV,
-      IBU: beer.IBU,
-      beerColor: beer.beerColor,
-      breweryId: beer.breweryId,
+      abv: beer.abv,
+      ibu: beer.ibu,
+      beer_color: beer.beer_color,
+      brewery_id: beer.brewery_id,
       description: beer.description,
       rating: beer.rating
     })
@@ -60,15 +60,15 @@ export default class UpdateBeer extends Component {
   }
 
   handleChangeABV = e => {
-    this.setState({ ABV: e.target.value })
+    this.setState({ abv: e.target.value })
   }
 
   handleChangeIBU = e => {
-    this.setState({ IBU: e.target.value })
+    this.setState({ ibu: e.target.value })
   }
 
   handleChangeBeerColor = e => {
-    this.setState({ beerColor: e.target.value })
+    this.setState({ beer_color: e.target.value })
   }
 
   handleChangeDescription = e => {
@@ -81,20 +81,20 @@ export default class UpdateBeer extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { id, name, style, ABV, IBU, beerColor, breweryId, description, rating } = this.state
-    const updatedBeer = { id, name, style, ABV, IBU, beerColor, breweryId, description, rating }
+    const { id, name, style, abv, ibu, beer_color, brewery_id, description, rating } = this.state
+    const updatedBeer = { id, name, style, abv, ibu, beer_color, brewery_id, description, rating }
     this.context.updateBeer(updatedBeer)
     this.props.history.push(`/BeerPage/${id}`)
   }
 
   render() {
-    const beerId = this.props.match.params.beerId
+    const beer_id = this.props.match.params.beer_id
     const beers = this.context.Beers
-    const beer = serviceFunctions.getCurrentBeer(beers, beerId) || {}
+    const beer = serviceFunctions.getCurrentBeer(beers, beer_id) || {}
     const breweries = this.context.Breweries
-    const breweryId = beer.breweryId
-    const brewery = serviceFunctions.findBrewery(breweries, breweryId) || {}
-    const { name, style, ABV, IBU, beerColor, description, rating } = this.state
+    const brewery_id = beer.brewery_id
+    const brewery = serviceFunctions.findBrewery(breweries, brewery_id) || {}
+    const { name, style, abv, ibu, beer_color, description, rating } = this.state
     const radioInputs = beer_colors.map(
       (c, i) =>
         <option
@@ -142,7 +142,7 @@ export default class UpdateBeer extends Component {
                   step='.01'
                   id='ABV'
                   name='ABV'
-                  value={ABV}
+                  value={abv}
                   onChange={this.handleChangeABV} />
 
                <label htmlFor="IBU">IBU</label>
@@ -150,15 +150,15 @@ export default class UpdateBeer extends Component {
                   type="number"
                   id='IBU'
                   name='IBU'
-                  value={IBU}
+                  value={ibu}
                   onChange={this.handleChangeIBU} />
 
-              <label htmlFor='beer_colors'>Beer Colors from the SRM List</label>
+              <label htmlFor='beer_color'>Beer Colors from the SRM List</label>
               <select
-                name="beer-color"
-                id="beer-color"
-                style={{'backgroundColor': this.state.beerColor.value}}
-                value={beerColor}
+                name="beer_color"
+                id="beer_color"
+                style={{'backgroundColor': this.state.beer_color}}
+                value={beer_color}
                 onChange={this.handleChangeBeerColor}>
                 {radioInputs}
               </select>

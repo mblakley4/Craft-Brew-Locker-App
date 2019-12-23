@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import Rating from '../Rating/Rating'
-import serviceFunctions from '../../serviceFunctions'
+import serviceFunctions from '../../Services/serviceFunctions'
 import './BeerItem.css'
 
 export default class BeerItem extends Component {
   static contextType = LockerContext
 
   render() {
-    const breweryId = this.props.breweryId
+    const brewery_id = this.props.brewery_id
     const brewery =
-      serviceFunctions.findBrewery(this.context.Breweries, breweryId)
+      serviceFunctions.findBrewery(this.context.Breweries, brewery_id) || {}
     return (
 
       <Link

@@ -32,8 +32,9 @@ label {
   margin: 1%
 }
 
-#beer-color {
+#beer_color {
   height: 30px;
+  color: ghostwhite;
 }
 
 textarea {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import STATES from '../../states_US';
+import STATES from '../../Services/states_US';
 import ValidationError from '../../Components/ValidationError'
 import LockerContext from '../../LockerContext'
 import './AddBreweryForm.css';

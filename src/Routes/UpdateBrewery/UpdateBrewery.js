@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import STATES from '../../states_US';
+import STATES from '../../Services/states_US';
 import LockerContext from '../../LockerContext'
 
 export default class UpdateBrewery extends Component {
