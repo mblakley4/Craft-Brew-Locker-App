@@ -3,57 +3,48 @@ import { Link } from 'react-router-dom'
 import BeerList from '../../Components/BeerList/BeerList'
 import Footer from '../../Components/Footer/Footer'
 import Loader from '../../Services/Loader'
+import LockerContext from '../../LockerContext'
 import './BeerListPage.css'
 
 export default class BeerListPage extends Component {
-  state = {
-    loaded: false
-  }
+  static contextType = LockerContext
 
   componentDidMount() {
-    setTimeout(() =>
-      this.setState({
-        loaded: true
-      }), 3000)
+    this.context.setLoadStatus(true)
   }
-
 
   render() {
-    console.log('component rendered');
-    const { loaded } = this.state
+    const loaded = this.context.loaded
+      ? <div/>
+      : Loader({type: 'spinningBubbles', color: '#730C02'})
 
-    if (!loaded) {
-      return (
-          Loader({type: 'spinningBubbles', color: '#730C02'})
-    )
-    }
-    else {
+    const beerList = <BeerList />
+
     return (
       <div>
-      <div className='beer-list-container'>
-        <h1>Craft Beer List</h1>
+        <div className='beer-list-container'>
+            <h1>Craft Beer List</h1>
 
-        <div className='list-links'>
-          <Link to={'/FindBreweryForm'}>
-            <button>
-              Add a Beer
-            </button>
-          </Link>
+            <div className='list-links'>
+              <Link to={'/FindBreweryForm'}>
+                <button>
+                  Add a Beer
+                </button>
+              </Link>
 
-          <Link to={'/FindBreweryForm'}>
-            <button type="button">
-              Update a Brewery
-            </button>
-          </Link>
-        </div>
-
-        <section className='beer-list'>
-          <BeerList />
-        </section>
-      </div>
-      <Footer />
+              <Link to={'/FindBreweryForm'}>
+                <button type="button">
+                  Update a Brewery
+                </button>
+              </Link>
+            </div>
+            <section className='beer-list'>
+              {loaded}
+              {this.context.loaded && beerList}
+            </section>
+          </div>
+        <Footer />
       </div>
     );
-  }
   }
 }

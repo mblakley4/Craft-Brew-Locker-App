@@ -18,6 +18,7 @@ class App extends React.Component {
     Beers: [],
     Breweries: [],
     Comments: [],
+    loaded: false,
     error: null,
   }
 
@@ -55,10 +56,13 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
+  handleLoadStatus = loadStatus => {
     this.setState({
-      loaded: true
+      loaded: loadStatus
     })
+  }
+
+  componentDidMount() {
     apiServices.getBreweries()
     .then(breweries => {
       this.setState({ Breweries: breweries })
@@ -76,12 +80,6 @@ class App extends React.Component {
       this.setState({ Comments: comments })
     })
     .catch(error => this.setState({ error }))
-
-    // this.setState({
-    //   Beers: Beers,
-    //   Breweries: Breweries,
-    //   Comments: Comments
-    // })
   }
 
   render() {
@@ -89,11 +87,13 @@ class App extends React.Component {
       Beers: this.state.Beers,
       Breweries: this.state.Breweries,
       Comments: this.state.Comments,
+      loaded: this.state.loaded,
       addBrewery: this.handleAddBrewery,
       addBeer: this.handleAddBeer,
       postComment: this.handlePostComment,
       updateBrewery: this.handleUpdateBrewery,
       updateBeer: this.handleUpdateBeer,
+      setLoadStatus: this.handleLoadStatus,
     }
   	return (
   		<main className='App'>
