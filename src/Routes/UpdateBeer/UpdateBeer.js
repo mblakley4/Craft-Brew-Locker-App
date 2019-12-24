@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LockerContext from '../../LockerContext'
 import serviceFunctions from '../../Services/serviceFunctions'
+import apiServices from '../../Services/apiServices'
 import beer_colors from '../../Services/beer_colors'
 
 export default class UpdateBeer extends Component {
-
   static contextType = LockerContext;
 
   state = {
@@ -17,7 +17,7 @@ export default class UpdateBeer extends Component {
     beer_color: '',
     brewery_id: '',
     description: '',
-    rating: ''
+    rating: '',
   }
 
   componentDidMount() {
@@ -81,10 +81,17 @@ export default class UpdateBeer extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    const beer_id = this.props.match.params.beer_id
     const { id, name, style, abv, ibu, beer_color, brewery_id, description, rating } = this.state
-    const updatedBeer = { id, name, style, abv, ibu, beer_color, brewery_id, description, rating }
-    this.context.updateBeer(updatedBeer)
-    this.props.history.push(`/BeerPage/${id}`)
+    const updatedBeer = { id, name, style, abv, ibu, beer_color, brewery_id, rating, description }
+    apiServices.updateBeer(updatedBeer, beer_id)
+    .then (()  => {
+      this.context.updateBeer(updatedBeer)
+      this.props.history.push(`/BeerPage/${id}`)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   render() {

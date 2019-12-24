@@ -82,6 +82,34 @@ const apiServices = {
         : res.json()
     )
   },
+  updateBeer(updatedBeer, beer_id) {
+    return fetch(`${config.API_BASE_URL}/beers/${beer_id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(updatedBeer),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        res.json().then(e => Promise.reject(e))
+      }
+    })
+  },
+  updateBrewery(updatedBrewery, brewery_id) {
+    return fetch(`${config.API_BASE_URL}/breweries/${brewery_id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(updatedBrewery),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        res.json().then(e => Promise.reject(e))
+      }
+    })
+  },
 }
 
 export default apiServices

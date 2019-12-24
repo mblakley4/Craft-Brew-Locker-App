@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import STATES from '../../Services/states_US';
+import { Link } from 'react-router-dom'
+import STATES from '../../Services/states_US'
 import LockerContext from '../../LockerContext'
+import apiServices from '../../Services/apiServices'
 
 export default class UpdateBrewery extends Component {
   static contextType = LockerContext
@@ -15,8 +16,6 @@ export default class UpdateBrewery extends Component {
   }
 
   componentDidMount() {
-    //GET endpoint with breweryId
-    //setState to brewery
     const { id, name, city, us_state, image } = this.props.location.state.brewery
     this.setState({
       id: id,
@@ -47,8 +46,14 @@ export default class UpdateBrewery extends Component {
     e.preventDefault()
     const { id, name, city, us_state, image } = this.state
     const updatedBrewery = { id, name, city, us_state, image }
-    this.context.updateBrewery(updatedBrewery)
-    this.props.history.push('/BeerListPage')
+    apiServices.updateBrewery(updatedBrewery, id)
+    .then (()  => {
+      this.context.updateBrewery(updatedBrewery)
+      this.props.history.push('/BeerListPage')
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   render() {
@@ -63,32 +68,32 @@ export default class UpdateBrewery extends Component {
       <div className='background-container'>
       <h1>Update Brewery</h1>
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor='name'>Name</label>
           <input
-            type="text"
+            type='text'
             id='name'
             name='name'
             value={name}
             onChange={this.handleChangeName}
             required />
 
-        <label htmlFor="city">City</label>
+        <label htmlFor='city'>City</label>
           <input
-            type="text"
+            type='text'
             id='city'
             name='city'
             value={city}
             onChange={this.handleChangeCity}
             required />
 
-        <label htmlFor="state">State</label>
+        <label htmlFor='state'>State</label>
           <select
             id='state'
             name='state'
             value={us_state}
             onChange={this.handleChangeUSstate}
             required >
-            <option value="None">Select one...</option>
+            <option>Select one...</option>
             {options}
           </select>
 
@@ -101,10 +106,7 @@ export default class UpdateBrewery extends Component {
             onChange={this.handleChangeImage}
             name='breweryImage' />
 
-          <button
-          type='submit'
-
-          >
+          <button type='submit'>
             Save
           </button>
 
