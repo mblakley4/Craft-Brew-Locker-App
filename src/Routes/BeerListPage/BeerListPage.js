@@ -2,10 +2,30 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BeerList from '../../Components/BeerList/BeerList'
 import Footer from '../../Components/Footer/Footer'
+import Loader from '../../Services/Loader'
 import './BeerListPage.css'
 
 export default class BeerListPage extends Component {
+  state = {
+    loaded: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      loaded: true
+    })
+  }
+
+
   render() {
+    const { loaded } = this.state
+
+    if (!loaded) {
+      return (
+          Loader({type: 'spinningBubbles', color: '#730C02'})
+    )
+    }
+    else {
     return (
       <div>
       <div className='beer-list-container'>
@@ -32,5 +52,6 @@ export default class BeerListPage extends Component {
       <Footer />
       </div>
     );
+  }
   }
 }

@@ -56,6 +56,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({
+      loaded: true
+    })
     apiServices.getBreweries()
     .then(breweries => {
       this.setState({ Breweries: breweries })

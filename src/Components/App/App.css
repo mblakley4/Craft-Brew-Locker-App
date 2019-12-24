@@ -36,3 +36,12 @@ a {
   text-decoration: none;
   color: ghostwhite;
 }
+
+.Loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* margins stay half height/width of div to stay centered */
+  margin-top: -2.5%;
+  margin-left: -2.5%;
+}
