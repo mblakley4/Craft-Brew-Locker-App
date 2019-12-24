@@ -11,13 +11,15 @@ export default class BeerListPage extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      loaded: true
-    })
+    setTimeout(() =>
+      this.setState({
+        loaded: true
+      }), 3000)
   }
 
 
   render() {
+    console.log('component rendered');
     const { loaded } = this.state
 
     if (!loaded) {
