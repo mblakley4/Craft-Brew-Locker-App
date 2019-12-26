@@ -12,6 +12,7 @@ export default class BeerList extends Component {
 
   render() {
     const { Beers } = this.context
+
     return (
       <>
         {Beers.map(beer =>

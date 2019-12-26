@@ -8,8 +8,11 @@ import './BeerItem.css'
 export default class BeerItem extends Component {
   static contextType = LockerContext
 
-  componentDidMount() {
-    this.context.setLoadStatus(true)
+  componentDidMount () {
+    setTimeout(() =>
+      this.context.setLoadStatus(true),
+      3000
+    )
   }
 
   render() {
