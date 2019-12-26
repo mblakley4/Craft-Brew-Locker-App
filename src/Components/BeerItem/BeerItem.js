@@ -11,7 +11,7 @@ export default class BeerItem extends Component {
   componentDidMount () {
     setTimeout(() =>
       this.context.setLoadStatus(true),
-      3000
+      1500
     )
   }
 

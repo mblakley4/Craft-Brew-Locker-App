@@ -19,19 +19,19 @@ export default class BeerPage extends Component {
     return (
       <div>
         <section className='img-container'>
-          <img src={beerHops} className='hero-img' alt='beer and hops on wood plank' />
+          <div className='beerPageBanner' />
           <div className='top_button'>
-            <Link to={`/UpdateBeer/${this.props.match.params.beer_id}`} >
-              <button>
-                Update Beer
-              </button>
-            </Link>
-
             <button
               onClick={ () => this.props.history.push(`/BeerListPage`)}
             >
               Home
             </button>
+
+            <Link to={`/UpdateBeer/${this.props.match.params.beer_id}`} >
+              <button>
+                Update Beer
+              </button>
+            </Link>
           </div>
         </section>
 

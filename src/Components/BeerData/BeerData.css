@@ -1,10 +1,19 @@
 .beer-data-container {
-  background: #b6a27a;
+  background: ghostwhite;
+  /* background: #b6a27a; */
+  color: #2d2d2f;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.beerName-title {
+  padding-bottom: 1%;
 }
 
 .beer-data {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0 2%;
 }
@@ -13,14 +22,19 @@
   flex-basis: 33%;
   text-align: center;
   min-width: 300px;
-  padding: 2%;
+  padding: 4% 2%;
 }
 
 .brewery-img {
-  height: 150px;
+  height: 200px;
   width: auto;
-  max-width: 250px;
+  max-width: 300px;
   margin: 0 auto;
+}
+
+.hopsGlass {
+  height: 350px;
+  width: auto;
 }
 
 .glass {
@@ -28,31 +42,31 @@
 }
 
 .oval {
-  height: 45px;
-  width: 155px;
+  height: 15px;
+  width: 65px;
   border: 1.5px solid black;
   border-radius: 50%;
   position: relative;
-  top: 25px;
+  top: 8px;
   z-index: 10;
   margin: 0 auto;
 }
 
 .trapezoid {
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
 	height: 0;
-	width: 155px;
+	width: 65px;
   position: relative;
   margin: 0 auto;
 }
 
 .oval-bottom {
-  height: 45px;
-  width: 125px;
+  height: 20px;
+  width: 45px;
   border-radius: 50%;
   position: relative;
-  bottom: 25px;
+  bottom: 12px;
   margin: 0 auto;
 }
 

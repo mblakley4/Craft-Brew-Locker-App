@@ -1,14 +1,14 @@
 .comment-container {
-  background-color: #2d2d2f;
+  background-color: #b6a27a;
   padding: 2%;
 }
 
 .comment_list {
-  color: ghostwhite;
+  color: #2d2d2f;
 }
 
 .comment-title {
-  color: ghostwhite;
+  color: #2d2d2f;
 }
 
 .comment {
@@ -20,5 +20,5 @@
 }
 
 .user_name {
-  color: ghostwhite;
+  color: #2d2d2f;
 }

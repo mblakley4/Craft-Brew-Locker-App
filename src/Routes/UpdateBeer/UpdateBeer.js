@@ -188,7 +188,7 @@ export default class UpdateBeer extends Component {
               <textarea
                 name="description"
                 id="description"
-                cols="26"
+                cols="24"
                 rows="6"
                 value={description}
                 onChange={this.handleChangeDescription}>

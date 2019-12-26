@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BeerItem from '../BeerItem/BeerItem'
 import LockerContext from '../../LockerContext'
-import './BeerList.css'
 
 export default class BeerList extends Component {
   static contextType = LockerContext;

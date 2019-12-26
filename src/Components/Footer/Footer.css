@@ -4,7 +4,7 @@ footer {
   color: ghostwhite;
   height: 50px;
   padding: 12px;
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;

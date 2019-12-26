@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LockerContext from '../../LockerContext'
 import apiServices from '../../Services/apiServices'
+import './CommentForm.css'
 
 export default class CommentForm extends Component {
   static contextType = LockerContext
@@ -51,7 +52,7 @@ export default class CommentForm extends Component {
         <textarea
           name="text"
           id="text"
-          cols="65"
+          cols="30"
           rows="10"
           placeholder='Leave a Comment'
           onChange={e => this.updateText(e.target.value)}

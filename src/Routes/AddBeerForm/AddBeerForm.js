@@ -176,6 +176,7 @@ export default class AddBeerForm extends Component {
                 id="beer_color"
                 style={{'background-color': this.state.beer_color.value}}
                 onChange={e => this.updateBeerColor(e.target.value)}>
+                <option>select one...</option>
                 {radioInputs}
               </select>
 
@@ -197,7 +198,7 @@ export default class AddBeerForm extends Component {
               <textarea
                 name="description"
                 id="description"
-                cols="26"
+                cols="24"
                 rows="6"
                 onChange={e => this.updateBeerDescription(e.target.value)}>
               </textarea>

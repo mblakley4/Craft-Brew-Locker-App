@@ -1,16 +1,21 @@
 .top_button {
   position: absolute;
-  top: 8px;
+  top: 16px;
   right: 16px;
 }
 
 .hero-img {
-  width: 100%;
+  width: 65%;
   height: auto;
-  max-height: 700px;
+  max-height: 450px;
+}
+
+.beerPageBanner {
+  background: #2d2d2f;
+  height: 100px;
 }
 
 .img-container {
   position: relative;
-  background-color: #b6a27a;
+  background: #2d2d2f;
 }
