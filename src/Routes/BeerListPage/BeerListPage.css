@@ -1,10 +1,10 @@
 .beer-list-container {
-  /* background: url(../../Images/wheat_brown_tall.jpg) no-repeat center center fixed;
+  background: url(../../Images/wheat_brown_tall.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vmax; */
+  padding: 5%;
 }
 
 h1 {
@@ -29,7 +29,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-bottom: 80px;
+  margin-bottom: 75px;
 }
 
 .list-links {
