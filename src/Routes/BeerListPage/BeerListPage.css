@@ -1,10 +1,10 @@
 .beer-list-container {
-  background: url(../../Images/wheat_brown_tall.jpg) no-repeat center center fixed;
+  /* background: url(../../Images/wheat_brown_tall.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vmax;
+  height: 100vmax; */
 }
 
 h1 {
