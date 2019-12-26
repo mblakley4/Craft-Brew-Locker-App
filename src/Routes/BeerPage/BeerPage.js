@@ -4,7 +4,6 @@ import BeerData from '../../Components/BeerData/BeerData'
 import CommentList from '../../Components/CommentList/CommentList'
 import serviceFunctions from '../../Services/serviceFunctions'
 import LockerContext from '../../LockerContext'
-import beerHops from '../../Images/hops_beer.jpg'
 import Footer from '../../Components/Footer/Footer'
 import './BeerPage.css'
 

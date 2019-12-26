@@ -6,7 +6,15 @@ export default class Footer extends Component {
     return (
       <div>
       <footer>
-        <p>© Michael Blakley, 2019. All Rights Reserved.</p>
+        <p> © { }
+          <a
+            href='mailto:m.blakley@icloud.com'
+            target='_blank'
+            rel="noopener noreferrer"
+          >
+             Michael Blakley
+            </a>
+          , 2019. All Rights Reserved.</p>
       </footer>
       </div>
     );

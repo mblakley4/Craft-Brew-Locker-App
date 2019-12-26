@@ -26,22 +26,6 @@ export default class UpdateBrewery extends Component {
     })
   }
 
-  handleChangeName = e => {
-    this.setState({ name: e.target.value })
-  }
-
-  handleChangeCity = e => {
-    this.setState({ city: e.target.value })
-  }
-
-  handleChangeUSstate = e => {
-    this.setState({ us_state: e.target.value })
-  }
-
-  handleChangeImage = e => {
-    this.setState({ image: e.target.value })
-  }
-
   handleSubmit = e => {
     e.preventDefault()
     const { id, name, city, us_state, image } = this.state
@@ -56,68 +40,88 @@ export default class UpdateBrewery extends Component {
     })
   }
 
+  handleChangeName(name) {
+    this.setState({name: name})
+  }
+
+  handleChangeCity(city) {
+    this.setState({city: city})
+  }
+
+  handleChangeUSstate(us_state) {
+    this.setState({us_state: us_state})
+  }
+
+  handleChangeImage(image) {
+    this.setState({image: image})
+  }
+
   render() {
     const { name, city, us_state, image } = this.state
     const options = STATES
       .map(
-        (state, i) => <option value={state.abbr} key={i}>{state.abbr}</option>
+        (state, i) =>
+        <option
+          value={state.abbr}
+          key={i}>{state.abbr}
+        </option>
       )
     return (
       <div>
-      <div className='add-update-Brewery-container'>
-      <div className='background-container'>
-      <h1>Update Brewery</h1>
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            id='name'
-            name='name'
-            value={name}
-            onChange={this.handleChangeName}
-            required />
+        <div className='add-update-Brewery-container'>
+          <div className='background-container'>
+          <h1>Update Brewery</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor='name'>Name</label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                value={name}
+                onChange={e => this.handleChangeName(e.target.value)}
+                required />
 
-        <label htmlFor='city'>City</label>
-          <input
-            type='text'
-            id='city'
-            name='city'
-            value={city}
-            onChange={this.handleChangeCity}
-            required />
+            <label htmlFor='city'>City</label>
+              <input
+                type='text'
+                id='city'
+                name='city'
+                value={city}
+                onChange={e => this.handleChangeCity(e.target.value)}
+                required />
 
-        <label htmlFor='state'>State</label>
-          <select
-            id='state'
-            name='state'
-            value={us_state}
-            onChange={this.handleChangeUSstate}
-            required >
-            <option>Select one...</option>
-            {options}
-          </select>
+            <label htmlFor='state'>State</label>
+              <select
+                id='state'
+                name='state'
+                value={us_state}
+                onChange={e => this.handleChangeUSstate(e.target.value)}
+                required >
+                <option>Select one...</option>
+                {options}
+              </select>
 
-        <label htmlFor='breweryImage'>Brewery Image URL</label>
-          <span>(right click the brewery logo & select 'Copy Image Address')</span>
-          <input
-            type='url'
-            id='breweryImage'
-            value={image}
-            onChange={this.handleChangeImage}
-            name='breweryImage' />
+            <label htmlFor='breweryImage'>Brewery Image URL</label>
+              <span>(right click the brewery logo & select 'Copy Image Address')</span>
+              <input
+                type='url'
+                id='breweryImage'
+                value={image}
+                onChange={e => this.handleChangeImage(e.target.value)}
+                name='breweryImage' />
 
-          <button type='submit'>
-            Save
-          </button>
+              <button type='submit'>
+                Save
+              </button>
 
-        <Link to={'/BeerListPage'}>
-          <button type='button'>
-            Cancel
-          </button>
-        </Link>
-      </form>
-      </div>
-      </div>
+            <Link to={'/BeerListPage'}>
+              <button type='button'>
+                Cancel
+              </button>
+            </Link>
+          </form>
+          </div>
+        </div>
       </div>
     );
   }
