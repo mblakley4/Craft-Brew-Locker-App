@@ -11,14 +11,14 @@ export default class LandingPage extends Component {
         <h1>Craft Brew Locker</h1>
         <p className='app-desc'>
           Ever struggle to remember that great beer you tried at the new
-          craft brewery in Jacksonville?  What was the name of the brewery
-          anyway?  Craft Brew Locker is an easy way to keep track of your
+          craft brewery?  What was the name of that brewery
+          again?  Craft Brew Locker is an easy way to keep track of your
           favorite craft breweries and beer as you travel about!
         </p>
         <button className='landing-button'>
-          <Link to={'/BeerListPage'}>
-            ENTER
-          </Link>
+            <Link to={'/BeerListPage'}>
+              ENTER
+            </Link>
         </button>
         <p className='disclaimer'>
         The CBL app is intended for audiences 21 and over.

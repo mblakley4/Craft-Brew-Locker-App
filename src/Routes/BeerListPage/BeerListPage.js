@@ -9,16 +9,12 @@ import './BeerListPage.css'
 export default class BeerListPage extends Component {
   static contextType = LockerContext
 
-  componentDidMount() {
-    this.context.setLoadStatus(true)
-  }
-
   render() {
     const loaded = this.context.loaded
+
+    const loadSpinner = this.context.loaded
       ? <div/>
       : Loader({type: 'spinningBubbles', color: '#730C02'})
-
-    const beerList = <BeerList />
 
     return (
       <div>
@@ -38,9 +34,9 @@ export default class BeerListPage extends Component {
                 </button>
               </Link>
             </div>
-            <section className='beer-list'>
-              {loaded}
-              {this.context.loaded && beerList}
+            {loadSpinner}
+            <section className={loaded ? 'beer-list' : 'hidden'}>
+              <BeerList />
             </section>
           </div>
         <Footer />

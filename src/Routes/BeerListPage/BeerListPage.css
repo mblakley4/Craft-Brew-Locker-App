@@ -36,3 +36,7 @@ select {
   text-align: center;
   padding: 2%;
 }
+
+.hidden {
+  display: none;
+}

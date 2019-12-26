@@ -8,6 +8,10 @@ import './BeerItem.css'
 export default class BeerItem extends Component {
   static contextType = LockerContext
 
+  componentDidMount() {
+    this.context.setLoadStatus(true)
+  }
+
   render() {
     const brewery_id = this.props.brewery_id
     const brewery =
