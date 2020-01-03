@@ -33,9 +33,6 @@ label {
   font-weight: 600;
   box-shadow: none;
   border-radius: 5px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   padding-left: 7px;
   margin: 2%;
 }
