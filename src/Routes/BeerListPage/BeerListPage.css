@@ -1,4 +1,4 @@
-.beer-list-container {
+/* .beer-list-container {
   background: url(../../Images/wheat_brown_tall.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -6,10 +6,11 @@
   background-size: cover;
   padding: 5%;
   height: 100vh;
-}
+} */
 
-h1 {
+.beer-list-container h1 {
   text-align: center;
+  color: ghostwhite;
 }
 
 .filters {
