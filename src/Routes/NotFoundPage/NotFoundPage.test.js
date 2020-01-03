@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
-import UpdateBeer from './UpdateBeer'
+import NotFoundPage from './NotFoundPage'
 
-describe('UpdateBeer Tests', () => {
+describe('NotFoundPage Tests', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
-      <BrowserRouter>
-        <UpdateBeer />
-      </BrowserRouter>,
-      div);
+        <NotFoundPage />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 })

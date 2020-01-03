@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import LockerContext from '../../LockerContext'
 import apiServices from '../../Services/apiServices'
-import './CommentForm.css'
 
 export default class CommentForm extends Component {
   static contextType = LockerContext
@@ -48,7 +47,7 @@ export default class CommentForm extends Component {
   render() {
     return (
       <div>
-      <form id='comment_form' onSubmit={this.handleSubmit}>
+      <form id="comment_form" onSubmit={this.handleSubmit}>
         <textarea
           name="text"
           id="text"

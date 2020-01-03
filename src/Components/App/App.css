@@ -35,6 +35,7 @@ button:hover {
 a {
   text-decoration: none;
   color: ghostwhite;
+  margin: .5em;
 }
 
 .Loader {

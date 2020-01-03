@@ -18,7 +18,8 @@ export default class BeerListPage extends Component {
 
     return (
       <div>
-        <div className='beer-list-container'>
+        {loadSpinner}
+        <div className={loaded ? 'beer-list-container' : 'hidden'}>
             <h1>Craft Beer List</h1>
 
             <div className='list-links'>
@@ -34,11 +35,11 @@ export default class BeerListPage extends Component {
                 </button>
               </Link>
             </div>
-            {loadSpinner}
-            <section className={loaded ? 'beer-list' : 'hidden'}>
+
+            <section className='beer-list'>
               <BeerList />
             </section>
-          </div>
+        </div>
         <Footer />
       </div>
     );

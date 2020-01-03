@@ -9,6 +9,9 @@ import './BeerPage.css'
 
 export default class BeerPage extends Component {
   static contextType = LockerContext;
+  static defaultProps = {
+    match: {}
+  }
 
   render() {
     const Beers = this.context.Beers

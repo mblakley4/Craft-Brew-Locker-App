@@ -4,7 +4,6 @@ import './Footer.css'
 export default class Footer extends Component {
   render() {
     return (
-      <div>
       <footer>
         <p> © { }
           <a
@@ -16,7 +15,6 @@ export default class Footer extends Component {
             </a>
           , 2019. All Rights Reserved.</p>
       </footer>
-      </div>
     );
   }
 }
