@@ -18,6 +18,7 @@ export default class UpdateBeer extends Component {
     brewery_id: '',
     description: '',
     rating: '',
+    changes: false,
   }
 
   componentDidMount() {
@@ -52,31 +53,31 @@ export default class UpdateBeer extends Component {
   }
 
   handleChangeName = e => {
-    this.setState({ name: e.target.value })
+    this.setState({ name: e.target.value, changes: true })
   }
 
   handleChangeStyle = e => {
-    this.setState({ style: e.target.value })
+    this.setState({ style: e.target.value, changes: true })
   }
 
   handleChangeABV = e => {
-    this.setState({ abv: e.target.value })
+    this.setState({ abv: e.target.value, changes: true })
   }
 
   handleChangeIBU = e => {
-    this.setState({ ibu: e.target.value })
+    this.setState({ ibu: e.target.value, changes: true })
   }
 
   handleChangeBeerColor = e => {
-    this.setState({ beer_color: e.target.value })
+    this.setState({ beer_color: e.target.value, changes: true })
   }
 
   handleChangeDescription = e => {
-    this.setState({ description: e.target.value })
+    this.setState({ description: e.target.value, changes: true })
   }
 
   handleChangeRating = e => {
-    this.setState({ rating: e.target.value })
+    this.setState({ rating: e.target.value, changes: true })
   }
 
   handleSubmit = e => {
@@ -193,7 +194,11 @@ export default class UpdateBeer extends Component {
                 value={description}
                 onChange={this.handleChangeDescription}>
               </textarea>
-              <button type='submit'>
+              <button
+                type='submit'
+                disabled={!this.state.changes}
+                className={this.state.changes ? '' : 'disabled_button'}
+              >
                 Save
               </button>
             <Link to={'/BeerListPage'}>

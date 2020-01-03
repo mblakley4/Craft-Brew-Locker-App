@@ -8,13 +8,6 @@ import './BeerItem.css'
 export default class BeerItem extends Component {
   static contextType = LockerContext
 
-  componentDidMount () {
-    setTimeout(() =>
-      this.context.setLoadStatus(true),
-      1500
-    )
-  }
-
   render() {
     const brewery_id = this.props.brewery_id
     const brewery =

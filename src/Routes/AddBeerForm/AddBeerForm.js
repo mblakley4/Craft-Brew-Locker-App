@@ -121,6 +121,7 @@ export default class AddBeerForm extends Component {
           {c.srm}
         </option>
     )
+    console.log('render');
 
     return (
       <div>
@@ -174,8 +175,10 @@ export default class AddBeerForm extends Component {
               <select
                 name="beer_color"
                 id="beer_color"
-                style={{'background-color': this.state.beer_color.value}}
-                onChange={e => this.updateBeerColor(e.target.value)}>
+                style={{'backgroundColor': this.state.beer_color.value}}
+                onChange={e => this.updateBeerColor(e.target.value)}
+                required
+              >
                 <option>select one...</option>
                 {radioInputs}
               </select>

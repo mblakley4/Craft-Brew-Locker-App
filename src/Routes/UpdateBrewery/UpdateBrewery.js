@@ -13,6 +13,7 @@ export default class UpdateBrewery extends Component {
     city: '',
     us_state: '',
     image: '',
+    changes: false,
   }
 
   componentDidMount() {
@@ -41,19 +42,19 @@ export default class UpdateBrewery extends Component {
   }
 
   handleChangeName(name) {
-    this.setState({name: name})
+    this.setState({name: name, changes: true})
   }
 
   handleChangeCity(city) {
-    this.setState({city: city})
+    this.setState({city: city, changes: true})
   }
 
   handleChangeUSstate(us_state) {
-    this.setState({us_state: us_state})
+    this.setState({us_state: us_state, changes: true})
   }
 
   handleChangeImage(image) {
-    this.setState({image: image})
+    this.setState({image: image, changes: true})
   }
 
   render() {
@@ -110,7 +111,11 @@ export default class UpdateBrewery extends Component {
                 onChange={e => this.handleChangeImage(e.target.value)}
                 name='breweryImage' />
 
-              <button type='submit'>
+              <button 
+                type='submit'
+                disabled={!this.state.changes}
+                className={this.state.changes ? '' : 'disabled_button'}
+              >
                 Save
               </button>
 

@@ -9,9 +9,12 @@ import './BeerListPage.css'
 export default class BeerListPage extends Component {
   static contextType = LockerContext
 
+  setLoaded = () => {
+    this.context.setLoadStatus(true)
+  }
+
   render() {
     const loaded = this.context.loaded
-
     const loadSpinner = this.context.loaded
       ? <div/>
       : Loader({type: 'spinningBubbles', color: '#730C02'})
@@ -19,7 +22,10 @@ export default class BeerListPage extends Component {
     return (
       <div>
         {loadSpinner}
-        <div className={loaded ? 'beer-list-container' : 'hidden'}>
+        <div
+          onLoad={this.setLoaded}
+          className={loaded ? 'beer-list-container' : 'hidden'}
+        >
             <h1>Craft Beer List</h1>
 
             <div className='list-links'>
@@ -30,7 +36,9 @@ export default class BeerListPage extends Component {
               </Link>
 
               <Link to={'/FindBreweryForm'}>
-                <button type="button">
+                <button
+                  type="button"
+                >
                   Update a Brewery
                 </button>
               </Link>

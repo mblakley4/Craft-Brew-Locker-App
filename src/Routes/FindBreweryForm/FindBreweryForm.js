@@ -13,7 +13,14 @@ export default class FindBreweryForm extends Component {
   state = {
     brewery: {},
     touched: false,
-    redirect: 0
+    redirect: 0,
+    formLoaded: false
+  }
+
+  setLoaded = () => {
+    this.setState({
+      formLoaded: true
+    })
   }
 
   updateBrewery(id) {
@@ -43,7 +50,7 @@ export default class FindBreweryForm extends Component {
       }} />
     }
     const breweries  = this.context.Breweries
-    // const breweryList = breweries.map((b, i) => b.name).sort()
+    // TODO: add feature to sort list alphabetically
     const options = breweries.map((b, i) =>
       <option
         key={i}
@@ -71,6 +78,7 @@ export default class FindBreweryForm extends Component {
             <button
               type="submit"
               disabled={!this.state.touched}
+              className={this.state.touched ? '' : 'disabled_button'}
               onClick={e => this.updateRedirctAdd()}
             >
               Add Beer

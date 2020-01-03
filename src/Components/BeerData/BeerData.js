@@ -9,7 +9,8 @@ export default class BeerData extends Component {
   static contextType = LockerContext
 
   static defaultProps = {
-    beer: []
+    beer: [],
+    beer_color: '#BE823A'
   }
 
   render() {
@@ -52,14 +53,14 @@ export default class BeerData extends Component {
             <div className='glass'>
               <div
                 className="oval"
-                style={{'backgroundColor': beer.beer_color}}>
+                style={{'backgroundColor': beer.beer_color || this.props.beer_color}}>
               </div>
               <div
               className="trapezoid "
-              style={{'borderTop': `100px solid ${beer.beer_color}`}}></div>
+              style={{'borderTop': `100px solid ${beer.beer_color || this.props.beer_color}`}}></div>
               <div
               className="oval-bottom"
-              style={{'backgroundColor': beer.beer_color}}>
+              style={{'backgroundColor': beer.beer_color || this.props.beer_color}}>
               </div>
             </div>
             <Rating className='rating-data' value={beer.rating} />
@@ -69,28 +70,3 @@ export default class BeerData extends Component {
       );
   }
 }
-
-
-// <div className='circle-column'>
-//   <div
-//     className='circle'
-//     style={{'backgroundColor': beer.beer_color}}>
-//   </div>
-//   <h4>Beer Color</h4>
-// </div>
-
-
-
-// <div className='glass'>
-//   <div
-//     className="oval"
-//     style={{'backgroundColor': beer.beer_color}}>
-//   </div>
-//   <div
-//   className="trapezoid "
-//   style={{'borderTop': `200px solid ${beer.beer_color}`}}></div>
-//   <div
-//   className="oval-bottom"
-//   style={{'backgroundColor': beer.beer_color}}>
-//   </div>
-// </div>
