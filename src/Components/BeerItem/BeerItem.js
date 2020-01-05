@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Rating from '../Rating/Rating'
 import serviceFunctions from '../../Services/serviceFunctions'
 import LockerContext from '../../LockerContext'
+import hop from '../../Images/hop.png'
 import './BeerItem.css'
 
 export default class BeerItem extends Component {
@@ -12,6 +13,8 @@ export default class BeerItem extends Component {
     const brewery_id = this.props.brewery_id
     const brewery =
       serviceFunctions.findBrewery(this.context.Breweries, brewery_id) || {}
+    const brewImage = brewery.image
+    console.log(typeof brewImage);
     return (
 
       <Link
@@ -22,7 +25,7 @@ export default class BeerItem extends Component {
           <h2 className='beer-name'>{this.props.name}</h2>
           <img
             className='brewery-img-item'
-            src={brewery.image}
+            src={brewery.image.length > 0 ? brewery.image : hop}
             alt='brewery logo'
           />
           <h3 className='brewery-name'>{brewery.name}</h3>
