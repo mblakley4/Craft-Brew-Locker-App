@@ -13,8 +13,6 @@ export default class BeerItem extends Component {
     const brewery_id = this.props.brewery_id
     const brewery =
       serviceFunctions.findBrewery(this.context.Breweries, brewery_id) || {}
-    const brewImage = brewery.image
-    console.log(typeof brewImage);
     return (
 
       <Link
