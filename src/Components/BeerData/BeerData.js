@@ -63,6 +63,7 @@ export default class BeerData extends Component {
               className="oval-bottom"
               style={{'backgroundColor': beer.beer_color || this.props.beer_color}}>
               </div>
+              <h4>SRM Color</h4>
             </div>
             <Rating className='rating-data' value={beer.rating} />
           </div>
