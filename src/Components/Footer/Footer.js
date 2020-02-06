@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        <p> © { }
+        <p>
           <a
             href='mailto:m.blakley@icloud.com'
             target='_blank'
@@ -13,7 +13,7 @@ export default class Footer extends Component {
           >
              Michael Blakley
             </a>
-          , 2019. All Rights Reserved.</p>
+          | © 2019</p>
       </footer>
     );
   }
